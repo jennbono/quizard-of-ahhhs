@@ -1,0 +1,23 @@
+{
+  "name": "quizard-of-ahhhs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "gh-pages": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jennbono/quizard-of-ahhhs.git"
+  },
+  "author": "Bala Jenn Jill Sarah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jennbono/quizard-of-ahhhs/issues"
+  },
+  "homepage": "https://github.com/jennbono/quizard-of-ahhhs#readme"
+}
