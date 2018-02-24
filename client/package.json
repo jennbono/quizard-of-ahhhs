@@ -2,15 +2,14 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jennbono.github.io/quizard-of-ahhhs",
+  "homepage": "http://localhost:3001/",
   "dependencies": {
+    "axios": "^0.18.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "^1.1.1"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
