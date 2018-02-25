@@ -9,7 +9,7 @@ class Home extends Component {
         return(
             <div>
                 <Navbar />
-                <img src="quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="150"/>
+                <img src="quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200"/>
 
 
             </div>
