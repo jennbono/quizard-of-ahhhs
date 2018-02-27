@@ -13,11 +13,11 @@ class Home extends Component {
         <Container fluid>
           <Row>
             <Col size="md-6">
-              <img className="main-logo" src="img/quizard_of_ahhs.png" alt="Quizard of Ahhhs... Logo" height="250" />
+              <img className="mx-auto d-block" src="img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="250" />
               <Card>
-                <CardHeader><h1>Rules of the Game</h1></CardHeader>
+                <CardHeader><h1 className="text-center">Rules of the Game</h1></CardHeader>
                 <CardBody>
-                  <h3>Every player has 10 seconds to answer each question.  The player with the most questions correct at the end of 15 questions will be the winner and will enter Emerald Quizity.</h3>
+                  <h3 className="text-center">Every player has 10 seconds to answer each question.  The player with the most questions correct at the end of 15 questions will be the winner and will enter Emerald Quizity.</h3>
                 </CardBody>
               </Card>
             </Col>

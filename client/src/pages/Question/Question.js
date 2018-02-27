@@ -13,11 +13,11 @@ class Question extends Component {
         <Container fluid>
           <Row>
             <Col size="md-6">
-              <img className="main-logo" src="img/quizard_of_ahhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
+              <img className="mx-auto d-block" src="img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
               <Card>
-                <CardHeader><h1>Question 1</h1></CardHeader>
+                <CardHeader><h1 className="text-center">Question 1</h1></CardHeader>
                 <CardBody>
-                  <h4>What is the third planet from the sun?</h4>
+                  <h4 className="text-center">What is the third planet from the sun?</h4>
                 </CardBody>
               </Card>
               <button type="button" className="btn btn-outline-dark answer-btn">Option 1</button>
