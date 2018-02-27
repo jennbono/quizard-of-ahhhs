@@ -1,0 +1,26 @@
+@import "Variables";
+
+.App {
+  text-align: center;
+}
+
+.main-logo {
+  align-content: center;
+}
+
+// Navbar
+button.btn-success,
+  .btn-success:hover,
+  .btn-success:active,
+  .btn-success:visited,
+  .btn-success:focus {
+      background-color: $rubyRed;
+      border-color: $rubyRed;
+      margin-right: 5px;
+  }
+  
+button.btn-success:hover {
+      background: lighten($rubyRed, 5);
+  }
+
+

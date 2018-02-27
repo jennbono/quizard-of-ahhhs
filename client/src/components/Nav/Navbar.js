@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const Navbar = () =>
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a className="navbar-brand" href="/home">Quizard of Ahhhs...</a>
@@ -16,10 +17,10 @@ const Navbar = () =>
                 </li>
             </ul>
         </div>
-            <button type="button" className="btn btn-outline-primary">
+            <button type="button" className="btn btn-success">
                 Sign Up
             </button>
-            <button type="button" className="btn btn-outline-primary">
+            <button type="button" className="btn btn-success">
                 Log In
             </button>
     </nav>

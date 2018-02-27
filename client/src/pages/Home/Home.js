@@ -13,7 +13,7 @@ class Home extends Component {
         <Container fluid>
           <Row>
             <Col size="md-6">
-              <img src="img/quizard_of_ahhs.png" alt="Quizard of Ahhhs... Logo" height="250" />
+              <img className="main-logo" src="img/quizard_of_ahhs.png" alt="Quizard of Ahhhs... Logo" height="250" />
               <Card>
                 <CardHeader><h1>Rules of the Game</h1></CardHeader>
                 <CardBody>

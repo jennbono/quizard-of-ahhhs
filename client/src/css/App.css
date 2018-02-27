@@ -1,0 +1,18 @@
+.App {
+  text-align: center; }
+
+.main-logo {
+  -ms-flex-line-pack: center;
+  align-content: center; }
+
+button.btn-success,
+.btn-success:hover,
+.btn-success:active,
+.btn-success:visited,
+.btn-success:focus {
+  background-color: #b31e3f;
+  border-color: #b31e3f;
+  margin-right: 5px; }
+
+button.btn-success:hover {
+  background: #c92247; }
