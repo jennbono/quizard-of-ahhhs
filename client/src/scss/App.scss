@@ -17,10 +17,21 @@ button.btn-success,
       background-color: $rubyRed;
       border-color: $rubyRed;
       margin-right: 5px;
+      &:hover {
+        background: lighten($rubyRed, 5);
+      }
   }
   
-button.btn-success:hover {
-      background: lighten($rubyRed, 5);
+div.card-header.bg-success {
+  background-color: $rubyRed;
+}
+
+button.btn.btn-outline-dark.answer-btn {
+  color: $rubyRed;
+  border-color: $rubyRed;
+  margin: 10px;
+  &:hover {
+    background: lighten($rubyRed, 5);
+    color: white;
   }
-
-
+}
