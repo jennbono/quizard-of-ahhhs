@@ -4,6 +4,7 @@ import { Col, Container, Row } from "../../components/Grid";
 import { Card, CardBody, CardHeader } from "../../components/Card";
 
 
+
 class Home extends Component {
   render() {
     return (
@@ -12,7 +13,7 @@ class Home extends Component {
         <Container fluid>
           <Row>
             <Col size="md-6">
-              <img src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
+              <img className="text-center" src="img/quizard_of_ahhs.png" alt="Quizard of Ahhhs... Logo" height="250" />
               <Card>
                 <CardHeader><h1>Rules of the Game</h1></CardHeader>
                 <CardBody>
