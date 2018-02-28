@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'ld_ozregular';
+  src: url("ld_oz_fn-webfont.woff2") format("woff2"), url("ld_oz_fn-webfont.woff") format("woff"), url("ld_oz_fn.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
 button.btn-success,
 .btn-success:hover,
 .btn-success:active,
@@ -33,4 +39,5 @@ button.btn.btn-outline-dark.answer-btn {
     color: white; }
 
 h1 {
-  font-family: 'ld_ozregular', Arial, sans-serif; }
+  font-family: 'ld_ozregular', Arial, sans-serif;
+  font-size: 60px; }
