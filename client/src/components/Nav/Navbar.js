@@ -17,10 +17,10 @@ const Navbar = () =>
                 </li>
             </ul>
         </div>
-            <button type="button" className="btn btn-success">
+            <button type="button" className="btn btn-test">
                 Sign Up
             </button>
-            <button type="button" className="btn btn-success">
+            <button type="button" className="btn btn-test">
                 Log In
             </button>
     </nav>

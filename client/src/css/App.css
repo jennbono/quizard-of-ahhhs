@@ -4,20 +4,21 @@
   font-weight: normal;
   font-style: normal; }
 
-button.btn-success,
-.btn-success:hover,
-.btn-success:active,
-.btn-success:visited,
-.btn-success:focus {
+button.btn-test,
+.btn-test:hover,
+.btn-test:active,
+.btn-test:visited,
+.btn-stestfocus {
   font-family: 'Nanum Myeongjo', serif;
   background-color: #b31e3f;
   border-color: #b31e3f;
+  color: white;
   margin-right: 5px; }
-  button.btn-success:hover,
-  .btn-success:hover:hover,
-  .btn-success:active:hover,
-  .btn-success:visited:hover,
-  .btn-success:focus:hover {
+  button.btn-test:hover,
+  .btn-test:hover:hover,
+  .btn-test:active:hover,
+  .btn-test:visited:hover,
+  .btn-stestfocus:hover {
     background: #c92247; }
 
 .navbar-brand, .nav-link {
