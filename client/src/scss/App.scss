@@ -1,4 +1,5 @@
 @import "Variables";
+@import "Font";
 
 // Navbar
 button.btn-success,
@@ -49,5 +50,6 @@ button.btn.btn-outline-dark.answer-btn {
 // Fonts
 h1 {
   font-family: 'ld_ozregular', Arial, sans-serif;
+  font-size: 60px;
 }
 
