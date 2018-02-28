@@ -20,13 +20,15 @@ class Question extends Component {
                   <h4 className="text-center">What is the third planet from the sun?</h4>
                 </CardBody>
               </Card>
-              <button type="button" className="btn btn-outline-dark answer-btn">Option 1</button>
-              <br />
-              <button type="button" className="btn btn-outline-dark answer-btn">Option 2</button>
-              <br />
-              <button type="button" className="btn btn-outline-dark answer-btn">Option 3</button>
-              <br />
-              <button type="button" className="btn btn-outline-dark answer-btn">Option 4</button>
+              <div className="text-center">
+                <button type="button" className="btn btn-outline-dark answer-btn text-center">Option 1</button>
+                <br />
+                <button type="button" className="btn btn-outline-dark answer-btn text-center">Option 2</button>
+                <br />
+                <button type="button" className="btn btn-outline-dark answer-btn text-center">Option 3</button>
+                <br />
+                <button type="button" className="btn btn-outline-dark answer-btn text-center">Option 4</button>
+              </div>
             </Col>
           </Row>
         </Container> 
