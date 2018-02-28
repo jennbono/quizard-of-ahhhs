@@ -1,5 +1,6 @@
 @import "Variables";
 @import "Font";
+@import "Mixins";
 
 // Navbar
 button.btn-success,
@@ -7,7 +8,7 @@ button.btn-success,
   .btn-success:active,
   .btn-success:visited,
   .btn-success:focus {
-      font-family: $allOtherText;
+      @include allOtherFont;
       background-color: $rubyRed;
       border-color: $rubyRed;
       margin-right: 5px;
@@ -17,7 +18,7 @@ button.btn-success,
   }
 
   .navbar-brand, .nav-link { 
-    font-family: $allOtherText;
+    @include allOtherFont;
   }
 // End of Navbar
 
@@ -27,7 +28,7 @@ div.card-header.bg-test {
 }
 
 h3, h4 {
-  font-family: $allOtherText;
+  @include allOtherFont;
 }
 // End of Card
 
@@ -35,7 +36,7 @@ h3, h4 {
 button.btn.btn-outline-dark.answer-btn {
   color: $rubyRed;
   border-color: $rubyRed;
-  font-family: $allOtherText;
+  @include allOtherFont;
   margin: 10px;
   &:hover {
     background: lighten($rubyRed, 5);
