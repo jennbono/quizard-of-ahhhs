@@ -1,15 +1,9 @@
-.App {
-  text-align: center; }
-
-.main-logo {
-  -ms-flex-line-pack: center;
-  align-content: center; }
-
 button.btn-success,
 .btn-success:hover,
 .btn-success:active,
 .btn-success:visited,
 .btn-success:focus {
+  font-family: "Nanum Myeongjo", serif;
   background-color: #b31e3f;
   border-color: #b31e3f;
   margin-right: 5px; }
@@ -20,13 +14,23 @@ button.btn-success,
   .btn-success:focus:hover {
     background: #c92247; }
 
+.navbar-brand, .nav-link {
+  font-family: "Nanum Myeongjo", serif; }
+
 div.card-header.bg-test {
   background-color: #b31e3f; }
+
+h3, h4 {
+  font-family: "Nanum Myeongjo", serif; }
 
 button.btn.btn-outline-dark.answer-btn {
   color: #b31e3f;
   border-color: #b31e3f;
+  font-family: "Nanum Myeongjo", serif;
   margin: 10px; }
   button.btn.btn-outline-dark.answer-btn:hover {
     background: #c92247;
     color: white; }
+
+h1 {
+  font-family: 'ld_ozregular', Arial, sans-serif; }

@@ -8,7 +8,7 @@ import { Card, CardBody, CardHeader } from "../../components/Card";
 class Question extends Component {
   render() {
     return (
-      <div>
+      <div className="background">
         <Navbar />
         <Container fluid>
           <Row>
