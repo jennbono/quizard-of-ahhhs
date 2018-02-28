@@ -1,19 +1,12 @@
 @import "Variables";
 
-.App {
-  text-align: center;
-}
-
-.main-logo {
-  align-content: center;
-}
-
 // Navbar
 button.btn-success,
   .btn-success:hover,
   .btn-success:active,
   .btn-success:visited,
   .btn-success:focus {
+      font-family: $allOtherText;
       background-color: $rubyRed;
       border-color: $rubyRed;
       margin-right: 5px;
@@ -21,17 +14,40 @@ button.btn-success,
         background: lighten($rubyRed, 5);
       }
   }
-  
+
+  .navbar-brand, .nav-link { 
+    font-family: $allOtherText;
+  }
+// End of Navbar
+
+// Card
 div.card-header.bg-test {
   background-color: $rubyRed;
 }
 
+h3, h4 {
+  font-family: $allOtherText;
+}
+// End of Card
+
+// Question Page
 button.btn.btn-outline-dark.answer-btn {
   color: $rubyRed;
   border-color: $rubyRed;
+  font-family: $allOtherText;
   margin: 10px;
   &:hover {
     background: lighten($rubyRed, 5);
     color: white;
   }
 }
+
+// div.background {
+//   background: url("./img/yellow_brick_road.png")
+// }
+
+// Fonts
+h1 {
+  font-family: 'ld_ozregular', Arial, sans-serif;
+}
+
