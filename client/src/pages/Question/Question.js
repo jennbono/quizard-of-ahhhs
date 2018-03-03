@@ -13,7 +13,7 @@ class Question extends Component {
     super(props);
     this.state = {
       question: [],
-      timer: null,
+      timer: 25,
       answers: [],
       answerClicked: null,
       correctAnswerIndex: null,
@@ -21,23 +21,34 @@ class Question extends Component {
       totalAnswered: 0,
       totalCorrect: 0,
       totalWrong: 0,
+      totalTimedOut: 0,
       questionOn: true //true to display question, false to display answer
     };
-  }
-
-  componentWillMount() {
     this.showQuestion();
   }
 
   componentDidMount() {
     this.timerID = setInterval(
-      () => this.showQuestion(),
-      1000 * 25
+      () => this.tick(),
+      1000
     );
   }
 
   componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
 
+  tick() {
+    this.setState({
+      timer: this.state.timer - 1
+    });
+    const timer = this.state.timer;
+    if ((timer + 5) % 25 === 10) {
+      this.questionTimeOut();
+    }
+    else if (timer % 25 === 0) {
+      this.showQuestion();
+    }
   }
 
   showQuestion() {
@@ -48,7 +59,7 @@ class Question extends Component {
     else {
       API.getQuestions()
       .then(res => {
-        this.setState({ question: res.data.results[0], questionNum: questionNum+1, questionOn: true });
+        this.setState({ question: res.data.results[0], questionNum: questionNum+1, questionOn: true, timer: 25 });
         this.makeAnswerArray();
       })
       .catch(err => console.log(err));
@@ -59,7 +70,6 @@ class Question extends Component {
     const temp = [];
     const questObj = this.state.question;
     this.setState({ correctAnswerIndex: Math.floor(Math.random() * 4)});
-    console.log(this.state.correctAnswerIndex);
     switch (this.state.correctAnswerIndex) {
       case 0:
         temp.push(questObj.correct_answer, questObj.incorrect_answers[0], questObj.incorrect_answers[1], questObj.incorrect_answers[2]);
@@ -92,6 +102,11 @@ class Question extends Component {
       }
   }
 
+  questionTimeOut() {
+    let totalTimedOut = this.state.totalTimedOut;
+    this.setState({ questionOn: false });
+  }
+
   endRound() {
     clearInterval(this.timerID);
   }
@@ -110,6 +125,7 @@ class Question extends Component {
                 <Card>
                   <CardHeader><h1 className="text-center">Question {this.state.questionNum}</h1></CardHeader>
                   <CardBody>
+                    <p className="text-center">Time Remaining: {this.state.timer-5}</p>
                     <h4 className="text-center">{entities.decode(this.state.question.question)}</h4>
                   </CardBody>
                 </Card>
@@ -133,6 +149,7 @@ class Question extends Component {
                 <Card>
                   <CardHeader><h1 className="text-center">Question {this.state.questionNum}</h1></CardHeader>
                   <CardBody>
+                    <p className="text-center">Time Until Next Question: {this.state.timer}</p>
                     <h4 className="text-center">{entities.decode(this.state.question.question)}</h4>
                     <h6 className="text-center">The correct answer is: {entities.decode(this.state.answers[this.state.correctAnswerIndex])}</h6>
                     <p className="text-center"><strong>Total Answered:</strong> {this.state.totalAnswered} out of {this.state.questionNum}</p>
@@ -142,8 +159,6 @@ class Question extends Component {
                 </Card>
                 </Col>
               )}
-
-
           </Row>
         </Container>
       </div>
