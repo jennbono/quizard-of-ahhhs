@@ -1,5 +1,5 @@
 var router = require("express").Router();
-var Users = require ("../models/Users");;
+var Users = require ("../server/db/models/user");;
 var axios = require ("axios")
 
 router.get("/api/users", (req, res) => {
