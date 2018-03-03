@@ -44,7 +44,7 @@ class Question extends Component {
     });
     const timer = this.state.timer;
     if ((timer + 5) % 25 === 10) {
-      this.questionTimeOut();
+      this.setState({ questionOn: false });
     }
     else if (timer % 25 === 0) {
       this.showQuestion();
@@ -102,13 +102,9 @@ class Question extends Component {
       }
   }
 
-  questionTimeOut() {
-    let totalTimedOut = this.state.totalTimedOut;
-    this.setState({ questionOn: false });
-  }
-
   endRound() {
     clearInterval(this.timerID);
+    // this is the end of the game...add calls to end of game stuff
   }
 
   render() {
