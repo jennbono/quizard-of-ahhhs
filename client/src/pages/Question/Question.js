@@ -33,7 +33,6 @@ class Question extends Component {
     API.getQuestions()
       .then(res => {
         this.setState({ question: res.data.results[0] });
-        console.log(this.state.question);
         this.makeAnswerArray();
       })
       .catch(err => console.log(err));
@@ -61,7 +60,19 @@ class Question extends Component {
         break;
     }
     this.setState({ answers: temp});
-    console.log(this.state.answers);
+  }
+
+  scoreAnswer = index => {
+    const correctAnswer = this.state.correctAnswerIndex;
+    let totalAnswered = this.state.totalAnswered;
+    let totalCorrect = this.state.totalCorrect;
+    let totalWrong = this.state.totalWrong;
+      if (index === correctAnswer) {
+        this.setState({ totalAnswered: totalAnswered+1, totalCorrect: totalCorrect+1, questionOn: false});
+      }
+      else if (index !== correctAnswer) {
+        this.setState({ totalAnswered: totalAnswered+1, totalWrong: totalWrong+1, questionOn: false});
+      }
   }
 
   render() {
@@ -85,7 +96,7 @@ class Question extends Component {
                   {this.state.answers.map((option, index) => {
                     return (
                       <div key={index}>
-                        <button type="button" className="btn btn-outline-dark answer-btn text-center">{option}</button>
+                        <button type="button" className="btn btn-outline-dark answer-btn text-center" onClick={() => this.scoreAnswer(index)}>{option}</button>
                         <br />
                       </div>
                     );
@@ -96,6 +107,18 @@ class Question extends Component {
             ) : (
                 <Col size="md-6">
                   {/* answer component */}
+                  <img className="mx-auto d-block" src="img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
+
+                <Card>
+                  <CardHeader><h1 className="text-center">Question {this.state.questionNum}</h1></CardHeader>
+                  <CardBody>
+                    <h4 className="text-center">{this.state.question.question}</h4>
+                    <h6 className="text-center">The correct answer is: {this.state.answers[this.state.correctAnswerIndex]}</h6>
+                    <p className="text-center"><strong>Total Answered:</strong> {this.state.totalAnswered} out of {this.state.questionNum}</p>
+                    <p className="text-center"><strong>Total Correct:</strong> {this.state.totalCorrect}</p>
+                    <p className="text-center"><strong>Total Wrong:</strong> {this.state.totalWrong}</p>
+                  </CardBody>
+                </Card>
                 </Col>
               )}
 
