@@ -14,14 +14,6 @@ router.post("/api/users", (req, res) => {
     })
 });
 
-router.get('/api/questions', (req, res) => {
-    const url = "https://opentdb.com/api.php?amount=15&category=9&difficulty=hard&type=multiple" ;
-    axios.get(url).then((response) => {
-      res.json(response.data);
-        console.log(response.data);
-    });
-});
-
 router.post('/api/users/highscore/:id', (req, res) => {
   Users.findOne({"_id": req.params.id})
   .then(user => {
