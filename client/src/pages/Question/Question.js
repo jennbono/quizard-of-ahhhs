@@ -8,18 +8,21 @@ class Question extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      questions: [],
+      question: [],
       timer: null,
+      answers: [],
+      answerClicked: null,
+      correctAnswerIndex: null,
       questionNum: 1,
       totalAnswered: 0,
       totalCorrect: 0,
       totalWrong: 0,
-      questionOn: false //true to display question, false to display answer
+      questionOn: true //true to display question, false to display answer
     };
   }
 
-  componentDidMount() {
-    
+  componentWillMount() {
+    this.showQuestion();
   }
 
   componentWillUnmount() {
@@ -27,7 +30,38 @@ class Question extends Component {
   }
 
   showQuestion() {
+    API.getQuestions()
+      .then(res => {
+        this.setState({ question: res.data.results[0] });
+        console.log(this.state.question);
+        this.makeAnswerArray();
+      })
+      .catch(err => console.log(err));
+  }
 
+  makeAnswerArray() {
+    const temp = [];
+    const questObj = this.state.question;
+    this.setState({ correctAnswerIndex: Math.floor(Math.random() * 4)});
+    console.log(this.state.correctAnswerIndex);
+    switch (this.state.correctAnswerIndex) {
+      case 0:
+        temp.push(questObj.correct_answer, questObj.incorrect_answers[0], questObj.incorrect_answers[1], questObj.incorrect_answers[2]);
+        break;
+      case 1:
+        temp.push(questObj.incorrect_answers[0], questObj.correct_answer, questObj.incorrect_answers[1], questObj.incorrect_answers[2]);
+        break;
+      case 2:
+        temp.push(questObj.incorrect_answers[0], questObj.incorrect_answers[1], questObj.correct_answer, questObj.incorrect_answers[2]);
+        break;
+      case 3:
+        temp.push(questObj.incorrect_answers[0], questObj.incorrect_answers[1], questObj.incorrect_answers[2], questObj.correct_answer);
+        break;
+      default:
+        break;
+    }
+    this.setState({ answers: temp});
+    console.log(this.state.answers);
   }
 
   render() {
@@ -40,21 +74,24 @@ class Question extends Component {
               <Col size="md-6">
                 {/* question component */}
                 <img className="mx-auto d-block" src="img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
+
                 <Card>
-                  <CardHeader><h1 className="text-center">Question 1</h1></CardHeader>
+                  <CardHeader><h1 className="text-center">Question {this.state.questionNum}</h1></CardHeader>
                   <CardBody>
-                    <h4 className="text-center">What is the third planet from the sun?</h4>
+                    <h4 className="text-center">{this.state.question.question}</h4>
                   </CardBody>
                 </Card>
                 <div className="text-center">
-                  <button type="button" className="btn btn-outline-dark answer-btn text-center">Option 1</button>
-                  <br />
-                  <button type="button" className="btn btn-outline-dark answer-btn text-center">Option 2</button>
-                  <br />
-                  <button type="button" className="btn btn-outline-dark answer-btn text-center">Option 3</button>
-                  <br />
-                  <button type="button" className="btn btn-outline-dark answer-btn text-center">Option 4</button>
+                  {this.state.answers.map((option, index) => {
+                    return (
+                      <div key={index}>
+                        <button type="button" className="btn btn-outline-dark answer-btn text-center">{option}</button>
+                        <br />
+                      </div>
+                    );
+                  })}
                 </div>
+
               </Col>
             ) : (
                 <Col size="md-6">
@@ -62,7 +99,7 @@ class Question extends Component {
                 </Col>
               )}
 
-            
+
           </Row>
         </Container>
       </div>
