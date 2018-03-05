@@ -30,7 +30,9 @@
     "start": "concurrently \"nodemon server.js\" \"npm run client\"",
     "build": "node scripts/build.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "installDeps": "yarn && cd client && yarn"
+    "installDeps": "yarn && cd client && yarn",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -41,5 +43,5 @@
   "bugs": {
     "url": "https://github.com/jennbono/quizard-of-ahhhs/issues"
   },
-  "homepage": "https://github.com/jennbono/quizard-of-ahhhs#readme"
+  "homepage": "https://jennbono.github.io/quizzard-of-ahhhs"
 }

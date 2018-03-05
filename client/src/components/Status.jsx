@@ -1,7 +1,7 @@
 import React from 'react'
 // TODO - add proptypes
 
-const Home = props => {
+const Status = props => {
 	if (props.user) {
 		return (
 			<div className="Home">
@@ -23,4 +23,4 @@ const Home = props => {
 	}
 }
 
-export default Home
+export default Status;

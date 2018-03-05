@@ -2,13 +2,13 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import React, { Component } from 'react';
 import axios from 'axios';
-// import Home from "./pages/Home";
-// import LogIn from "./pages/LogIn";
-// import Question from "./pages/Question";
+import Home from "./pages/Home";
+import LogIn from "./pages/LogIn";
+import Question from "./pages/Question";
 import LoginForm from './components/Login/LoginForm'
 import SignupForm from './components/SignupForm'
 import Header from './components/Header'
-import Home from './components/Home'
+import Status from './components/Status'
 import Navbar from './components/Nav'
 import './css/App.css';
 import { Col, Container, Row } from "./components/Grid";
@@ -97,8 +97,8 @@ class App extends Component {
           </Row>
         </Container> 
         {/*  ROUTES */}
-        {/* <Route exact path="/" component={Home} /> */}
-        <Route exact path="/" render={() => <Home user={this.state.user} />} />
+        {/* <Route exact path="/" component={Status} /> */}
+        <Route exact path="/" render={() => <Status user={this.state.user} />} />
         <Route
           exact
           path="/login"
