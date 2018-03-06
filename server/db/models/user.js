@@ -14,7 +14,8 @@ const userSchema = new Schema({
 	google: {
 		googleId: { type: String, required: false }
 	},
-	highscore: {type: Number, default: 0}	// local: {
+	highscore: {type: Number, default: 0 }
+	// local: {
 	// 	email: { type: String, unique: true },
 	// 	password: { type: String }
 	// },
