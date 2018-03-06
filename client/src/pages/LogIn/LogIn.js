@@ -42,7 +42,7 @@ class LogIn extends Component {
           this.setState({
             loggedIn: true,
             user: response.data.user,
-            redirectTo: '/'
+            redirectTo: '/question'
           })
         }
       })
