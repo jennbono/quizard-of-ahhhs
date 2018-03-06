@@ -17,7 +17,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // Serve up static assets (usually on heroku)
-// app.use(express.static("./client/public"));
+app.use(express.static("./client/build"));
 // Add routes, both API and view
 
 

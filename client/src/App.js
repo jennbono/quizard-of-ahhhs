@@ -9,10 +9,7 @@ import Question from "./pages/Question";
 import SignupForm from './components/SignupForm'
 //import Header from './components/Header'
 //import Status from './components/Status'
-import Navbar from './components/Nav'
-import './css/App.css';
-import { Col, Container, Row } from "./components/Grid";
-import { Card, CardBody, CardHeader } from "./components/Card";
+//import './css/App.css';
 
 
 class App extends Component {
@@ -79,24 +76,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
-        {/* <Header user={this.state.user} /> */}
-        {/* LINKS to our different 'pages' */}
-       {/*  <Navbar _logout={this._logout} loggedIn={this.state.loggedIn} />
-        <Container fluid>
-          <Row>
-            <Col size="md-6">
-              <img className="mx-auto d-block" src="img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="250" />
-              <Card>
-                <CardHeader><h1 className="text-center">Rules of the Game</h1></CardHeader>
-                <CardBody>
-                  <h3 className="text-center">Every player has 10 seconds to answer each question.  The player with the most questions correct at the end of 15 questions will be the winner and will enter Emerald Quizity.</h3>
-                </CardBody>
-              </Card>
-            </Col>
-          </Row>
-        </Container> */}
-
         <Router>
           <div>
             <Route exact path="/" component={Home} user={this.state.user}/>
