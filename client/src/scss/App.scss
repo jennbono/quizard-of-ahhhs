@@ -28,7 +28,7 @@ div.card-header.bg-test {
   background-color: $rubyRed;
 }
 
-h3, h4 {
+h3, h4, h6, p {
   @include allOtherFont;
 }
 // End of Card
@@ -45,9 +45,7 @@ button.btn.btn-outline-dark.answer-btn {
   }
 }
 
-// div.background {
-//   background: url("./img/yellow_brick_road.png")
-// }
+
 
 // Fonts
 h1 {
