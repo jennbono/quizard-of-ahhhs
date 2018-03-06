@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 
 const Navbar = (props) => {
-
+//  _logout={this._logout} loggedIn={this.state.loggedIn} 
 	if (props.user) {
 		return (
 			<nav className="navbar navbar-expand-lg navbar-light bg-light">
