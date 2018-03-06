@@ -5,8 +5,8 @@ import axios from 'axios';
 import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import Question from "./pages/Question";
-import LoginForm from './components/Login/LoginForm';
-import SignupForm from './components/SignupForm';
+// import LoginForm from './components/Login/LoginForm'
+import SignupForm from './components/SignupForm'
 //import Header from './components/Header'
 //import Status from './components/Status'
 //import './css/App.css';
@@ -85,15 +85,15 @@ class App extends Component {
             {/*  ROUTES */}
             {/* <Route exact path="/" component={Status} /> */}
             {/* <Route exact path="/" render={() => <Status user={this.state.user} />} /> */}
-            <Route
+            {/* <Route
               exact
               path="/login"
               render={() =>
-                <LoginForm
+                <LogIn 
                   _login={this._login}
                   _googleSignin={this._googleSignin}
                 />}
-            />
+            /> */}
             <Route exact path="/signup" component={SignupForm} />
             {/* <LoginForm _login={this._login} /> */}
           </div>
