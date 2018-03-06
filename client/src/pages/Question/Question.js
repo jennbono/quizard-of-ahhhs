@@ -110,7 +110,7 @@ class Question extends Component {
   render() {
     return (
       <div className="background">
-        <Navbar />
+        <Navbar  _logout={this._logout} loggedIn={this.state.loggedIn}/>
         <Container fluid>
           <Row>
             {this.state.questionOn ? (

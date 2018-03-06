@@ -7,8 +7,8 @@ import LogIn from "./pages/LogIn";
 import Question from "./pages/Question";
 import LoginForm from './components/Login/LoginForm'
 import SignupForm from './components/SignupForm'
-import Header from './components/Header'
-import Status from './components/Status'
+//import Header from './components/Header'
+//import Status from './components/Status'
 import Navbar from './components/Nav'
 import './css/App.css';
 import { Col, Container, Row } from "./components/Grid";
@@ -79,10 +79,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-    
-        <Header user={this.state.user} />
+
+        {/* <Header user={this.state.user} /> */}
         {/* LINKS to our different 'pages' */}
-        <Navbar _logout={this._logout} loggedIn={this.state.loggedIn} />
+       {/*  <Navbar _logout={this._logout} loggedIn={this.state.loggedIn} />
         <Container fluid>
           <Row>
             <Col size="md-6">
@@ -95,21 +95,31 @@ class App extends Component {
               </Card>
             </Col>
           </Row>
-        </Container> 
-        {/*  ROUTES */}
-        {/* <Route exact path="/" component={Status} /> */}
-        <Route exact path="/" render={() => <Status user={this.state.user} />} />
-        <Route
-          exact
-          path="/login"
-          render={() =>
-            <LoginForm
-              _login={this._login}
-              _googleSignin={this._googleSignin}
-            />}
-        />
-        <Route exact path="/signup" component={SignupForm} />
-        {/* <LoginForm _login={this._login} /> */}
+        </Container> */}
+
+        <Router>
+          <div>
+            <Route exact path="/" component={Home} user={this.state.user}/>
+            <Route exact path="/home" component={Home} user={this.state.user} />
+            <Route exact path="/login" component={LogIn} user={this.state.user}/>
+            <Route exact path="/question" component={Question} user={this.state.user}/>
+            {/*  ROUTES */}
+            {/* <Route exact path="/" component={Status} /> */}
+            {/* <Route exact path="/" render={() => <Status user={this.state.user} />} /> */}
+            <Route
+              exact
+              path="/login"
+              render={() =>
+                <LoginForm
+                  _login={this._login}
+                  _googleSignin={this._googleSignin}
+                />}
+            />
+            <Route exact path="/signup" component={SignupForm} />
+            {/* <LoginForm _login={this._login} /> */}
+          </div>
+        </Router>
+
       </div>
     )
   }

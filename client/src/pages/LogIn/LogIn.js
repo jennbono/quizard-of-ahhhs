@@ -5,10 +5,15 @@ import { Input, Label, FormBtn } from "../../components/Form";
 
 
 class LogIn extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  };
+
   render() {
     return (
       <div>
-        <Navbar />
+        <Navbar _logout={this._logout} loggedIn={this.state.loggedIn}/>
         <Container fluid>
           <Row>
             <Col size="md-6">
