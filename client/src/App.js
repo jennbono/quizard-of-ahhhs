@@ -5,14 +5,11 @@ import axios from 'axios';
 import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import Question from "./pages/Question";
-import LoginForm from './components/Login/LoginForm'
-import SignupForm from './components/SignupForm'
+import LoginForm from './components/Login/LoginForm';
+import SignupForm from './components/SignupForm';
 //import Header from './components/Header'
 //import Status from './components/Status'
-import Navbar from './components/Nav'
-import './css/App.css';
-import { Col, Container, Row } from "./components/Grid";
-import { Card, CardBody, CardHeader } from "./components/Card";
+//import './css/App.css';
 
 
 class App extends Component {
