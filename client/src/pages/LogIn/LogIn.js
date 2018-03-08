@@ -54,37 +54,37 @@ class LogIn extends Component {
   }
 
   validate = () => {
-		let isError = false;
-		const errors = {
-			usernameError: "",
-			passwordError: ""
-		};
+    let isError = false;
+    const errors = {
+      usernameError: "",
+      passwordError: ""
+    };
 
-		if (this.state.username.length == 0) {
-			isError = true;
-			errors.usernameError = "UserName is required";
-		}
-		if (this.state.password.length == 0) {
-			isError = true;
-			errors.passwordError = "Password is required";
-		}
+    if (this.state.username.length == 0) {
+      isError = true;
+      errors.usernameError = "UserName is required";
+    }
+    if (this.state.password.length == 0) {
+      isError = true;
+      errors.passwordError = "Password is required";
+    }
 
-		this.setState({
-			...this.state,
-			...errors
-		});
-		return isError;
-	}
+    this.setState({
+      ...this.state,
+      ...errors
+    });
+    return isError;
+  }
 
 
   handleSubmit(event) {
     event.preventDefault()
     const err = this.validate();
-		if(!err){
-			console.log('handleSubmit')
-			this.props._login(this.state.username, this.state.password)
-		}
-  
+    if (!err) {
+      console.log('handleSubmit')
+      this.props._login(this.state.username, this.state.password)
+    }
+
 
   }
   componentDidMount() {
@@ -110,43 +110,43 @@ class LogIn extends Component {
     } else {
       return (
         <MuiThemeProvider>
-        <div>
-          <Navbar _logout={this._logout} loggedIn={this.state.loggedIn} />
-          <Container fluid>
-            <Row>
-              <Col size="md-6">
-                <div className="text-center" >
-                  <img src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
-                </div>
-                <form>
-                  {/* <Label htmlFor="username">Username: </Label> */}
-                  <TextField
-                    type="text"
-                    name="username"
-                    floatingLabelText="User Name"
-                    value={this.state.username}
-                    errorText={this.state.usernameError}
-                    onChange={this.handleChange}
-                  /><br/>
-                  {/* <Label htmlFor="password">Password: </Label> */}
-                  <TextField
-                    type="password"
-                    name="password"
-                    floatingLabelText="Password"
-                    value={this.state.password}
-                    errorText={this.state.passwordError}
-                    onChange={this.handleChange}
-                  /><br/>
-                  <button className="btn-test" onClick={this.handleSubmit}>Login</button>
-                </form>
-                <a href="/auth/google">
-                  {/* <GoogleButton /> */}
-                  <img className="google-button" src="../img/google_signin.png" alt="Sign into Google Button" />
-                </a>
-              </Col>
-            </Row>
-          </Container>
-        </div>
+          <div>
+            <Navbar _logout={this._logout} loggedIn={this.state.loggedIn} />
+            <Container fluid>
+              <Row>
+                <Col size="md-6">
+                  <div className="text-center" >
+                    <img src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
+                    <form>
+                      {/* <Label htmlFor="username">Username: </Label> */}
+                      <TextField
+                        type="text"
+                        name="username"
+                        floatingLabelText="User Name"
+                        value={this.state.username}
+                        errorText={this.state.usernameError}
+                        onChange={this.handleChange}
+                      /><br />
+                      {/* <Label htmlFor="password">Password: </Label> */}
+                      <TextField
+                        type="password"
+                        name="password"
+                        floatingLabelText="Password"
+                        value={this.state.password}
+                        errorText={this.state.passwordError}
+                        onChange={this.handleChange}
+                      /><br />
+                      <button className="btn-test" onClick={this.handleSubmit}>Login</button>
+                    </form>
+                    <a href="/auth/google">
+                      {/* <GoogleButton /> */}
+                      <img className="google-button" src="../img/google_signin.png" alt="Sign into Google Button" />
+                    </a>
+                  </div>
+                </Col>
+              </Row>
+            </Container>
+          </div>
         </MuiThemeProvider>
       )
     }
