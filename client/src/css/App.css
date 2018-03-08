@@ -24,10 +24,11 @@ button.btn-test,
 .navbar-brand, .nav-link {
   font-family: 'Nanum Myeongjo', serif; }
 
-div.card-header.bg-test {
-  background-color: #b31e3f; }
+div.card-header.default {
+  background-color: #b31e3f;
+  color: white; }
 
-h3, h4, h6, p {
+h3, h4, h6, p, .form-label {
   font-family: 'Nanum Myeongjo', serif; }
 
 button.btn.btn-outline-dark.answer-btn {
@@ -42,3 +43,13 @@ button.btn.btn-outline-dark.answer-btn {
 h1 {
   font-family: 'ld_ozregular', Arial, sans-serif;
   font-size: 60px; }
+
+div.card-header.winner {
+  background-color: #009874;
+  color: white; }
+
+.winner-logo {
+  margin-bottom: 15px; }
+
+.google-button {
+  margin-top: 25px; }
