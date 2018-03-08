@@ -1,6 +1,6 @@
 import React from "react";
 
 export const CardHeader = props =>
-  <div className="card-header bg-test text-light">
+  <div className={window.location.pathname === "/winner" ? "card-header winner" : "card-header default"}>
     {props.children}
   </div>;

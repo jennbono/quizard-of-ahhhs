@@ -24,8 +24,9 @@ button.btn-test,
 // End of Navbar
 
 // Card
-div.card-header.bg-test {
-  background-color: $rubyRed;
+div.card-header.default{
+    background-color: $rubyRed;
+    color: white;
 }
 
 h3, h4, h6, p {
@@ -45,11 +46,17 @@ button.btn.btn-outline-dark.answer-btn {
   }
 }
 
-
-
 // Fonts
 h1 {
   font-family: 'ld_ozregular', Arial, sans-serif;
   font-size: 60px;
 }
 
+div.card-header.winner {
+  background-color: $emerald;
+  color: white;
+}
+
+.winner-logo {
+  margin-bottom: 15px;
+}
