@@ -136,14 +136,8 @@ class LogIn extends Component {
                     value={this.state.password}
                     errorText={this.state.passwordError}
                     onChange={this.handleChange}
-<<<<<<< HEAD
-                    //floatingLabelFixed
-                  /><br />
-                  <button onClick={this.handleSubmit}>Login</button>
-=======
-                  />
+                  /><br/>
                   <button className="btn-test" onClick={this.handleSubmit}>Login</button>
->>>>>>> fb53412a64a7f05d4009faa34eb6d6016ab052cd
                 </form>
                 <a href="/auth/google">
                   {/* <GoogleButton /> */}
