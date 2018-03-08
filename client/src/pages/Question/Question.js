@@ -119,7 +119,7 @@ class Question extends Component {
                 <img className="mx-auto d-block" src="img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
 
                 <Card>
-                  <CardHeader><h1 className="text-center">Question {this.state.questionNum}</h1></CardHeader>
+                  <CardHeader className="default"><h1 className="text-center">Question {this.state.questionNum}</h1></CardHeader>
                   <CardBody>
                     <p className="text-center">Time Remaining: {this.state.timer-5}</p>
                     <h4 className="text-center">{entities.decode(this.state.question.question)}</h4>

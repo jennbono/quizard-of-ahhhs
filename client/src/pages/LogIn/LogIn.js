@@ -11,7 +11,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 class LogIn extends Component {
   constructor() {
     super()
- 
+
     this.state = {
       username: '',
       usernameError: '',
@@ -20,7 +20,7 @@ class LogIn extends Component {
       redirectTo: null,
       loggedIn: false,
       user: null
- 
+
     }
     // this.googleSignin = this.googleSignin.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -85,6 +85,7 @@ class LogIn extends Component {
 			this.props._login(this.state.username, this.state.password)
 		}
   
+
   }
   componentDidMount() {
     axios.get('/auth/user').then(response => {
@@ -114,7 +115,9 @@ class LogIn extends Component {
           <Container fluid>
             <Row>
               <Col size="md-6">
-                <img src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
+                <div className="text-center" >
+                  <img src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
+                </div>
                 <form>
                   {/* <Label htmlFor="username">Username: </Label> */}
                   <TextField
@@ -133,13 +136,18 @@ class LogIn extends Component {
                     value={this.state.password}
                     errorText={this.state.passwordError}
                     onChange={this.handleChange}
+<<<<<<< HEAD
                     //floatingLabelFixed
                   /><br />
                   <button onClick={this.handleSubmit}>Login</button>
+=======
+                  />
+                  <button className="btn-test" onClick={this.handleSubmit}>Login</button>
+>>>>>>> fb53412a64a7f05d4009faa34eb6d6016ab052cd
                 </form>
                 <a href="/auth/google">
                   {/* <GoogleButton /> */}
-                  <img src="../img/google_signin.png" alt="Sign into Google Button" />
+                  <img className="google-button" src="../img/google_signin.png" alt="Sign into Google Button" />
                 </a>
               </Col>
             </Row>
