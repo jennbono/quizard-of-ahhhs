@@ -6,8 +6,9 @@ import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import Question from "./pages/Question";
 import Winner from "./pages/Winner";
+import Start from "./pages/Start"
 // import LoginForm from './components/Login/LoginForm'
-import SignupForm from './components/SignupForm'
+import Signup from './pages/Signup'
 //import Header from './components/Header'
 //import Status from './components/Status'
 //import './css/App.css';
@@ -84,6 +85,7 @@ class App extends Component {
             <Route exact path="/login" component={LogIn} user={this.state.user}/>
             <Route exact path="/question" component={Question} user={this.state.user}/>
             <Route exact path="/winner" component={Winner} user={this.state.user}/>
+            <Route exact path="/start" component={Start} user={this.state.user}/>
             {/*  ROUTES */}
             {/* <Route exact path="/" component={Status} /> */}
             {/* <Route exact path="/" render={() => <Status user={this.state.user} />} /> */}
@@ -96,7 +98,7 @@ class App extends Component {
                   _googleSignin={this._googleSignin}
                 />}
             /> */}
-            <Route exact path="/signup" component={SignupForm} />
+            <Route exact path="/signup" component={Signup} />
             {/* <LoginForm _login={this._login} /> */}
           </div>
         </Router>

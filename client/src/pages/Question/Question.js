@@ -121,7 +121,7 @@ class Question extends Component {
                 <Card>
                   <CardHeader className="default"><h1 className="text-center">Question {this.state.questionNum}</h1></CardHeader>
                   <CardBody>
-                    <p className="text-center">Time Remaining: {this.state.timer-5}</p>
+                    <h6 className="text-center">Time Remaining: {this.state.timer-5}</h6>
                     <h4 className="text-center">{entities.decode(this.state.question.question)}</h4>
                   </CardBody>
                 </Card>
@@ -145,7 +145,7 @@ class Question extends Component {
                 <Card>
                   <CardHeader><h1 className="text-center">Question {this.state.questionNum}</h1></CardHeader>
                   <CardBody>
-                    <p className="text-center">Time Until Next Question: {this.state.timer}</p>
+                    <h6 className="text-center">Time Until Next Question: {this.state.timer}</h6>
                     <h4 className="text-center">{entities.decode(this.state.question.question)}</h4>
                     <h6 className="answer text-center">The correct answer is: {entities.decode(this.state.answers[this.state.correctAnswerIndex])}</h6>
                     <p className="text-center"><strong>Total Answered:</strong> {this.state.totalAnswered} out of {this.state.questionNum}</p>
