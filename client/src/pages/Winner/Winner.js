@@ -14,7 +14,7 @@ class Winner extends Component {
   render() {
     return (
       <div>
-        <Navbar _logout={this._logout} loggedIn={this.state.loggedIn}/>
+        <Navbar />
         <Container fluid>
           <Row>
             <Col size="md-6">
