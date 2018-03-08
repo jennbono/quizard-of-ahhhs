@@ -37,6 +37,16 @@ app.use(passport.session());// will call the deserializeUser
 app.use(routes);
 app.use('/auth', require('./server/auth'));
 
+// Set up promises with mongoose
+mongoose.Promise = global.Promise;
+// Connect to the Mongo DB
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/quizardofahhhs",
+  {
+    useMongoClient: true
+  }
+);
+
 // ====== Error handler ====
 app.use(function(err, req, res, next) {
 	console.log('====== ERROR =======');
