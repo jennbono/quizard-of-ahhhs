@@ -3,6 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "scripts": {
+    "server": "node server.js",
+    "client": "node scripts/start-client.js",
+    "start": "concurrently \"nodemon server.js\" \"yarn run client\"",
+    "build": "node scripts/build.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "installDeps": "npm install && cd client && npm install"
+  },
+  "author": "Bala Jenn Jill Sarah",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.11.0"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
@@ -11,7 +25,6 @@
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "express-session": "^1.15.4",
-    "html-entities": "^1.2.1",
     "mongoose": "^5.0.7",
     "morgan": "^1.8.2",
     "passport": "^0.3.2",
@@ -21,19 +34,5 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.1.2"
-  },
-  "scripts": {
-    "server": "node server.js",
-    "client": "node scripts/start-client.js",
-    "start": "concurrently \"nodemon server.js\" \"yarn run client\"",
-    "build": "node scripts/build.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "installDeps": "npm install && cd client && npm install"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jennbono/quizard-of-ahhhs.git"
-  },
-  "author": "Bala Jenn Jill Sarah",
-  "license": "ISC"
+  }
 }
