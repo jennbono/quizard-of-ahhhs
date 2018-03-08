@@ -22,9 +22,7 @@
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.1.2"
   },
-  "devDependencies": {
-    "gh-pages": "^1.1.0"
-  },
+  "devDependencies": {},
   "scripts": {
     "server": "node server.js",
     "client": "node scripts/start-client.js",
