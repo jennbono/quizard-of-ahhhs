@@ -82,7 +82,7 @@ class LogIn extends Component {
     const err = this.validate();
     if (!err) {
       console.log('handleSubmit')
-      this.props._login(this.state.username, this.state.password)
+      this._login(this.state.username, this.state.password)
     }
 
 
