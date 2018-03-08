@@ -94,31 +94,31 @@ class SignupForm extends Component {
 			<form>
 			<div className="SignupForm">
 				<h1>Signup form</h1>
-				<label htmlFor="username">Username: </label>
 				<TextField
 					type="text"
 					name="username"
+					floatingLabelText="User Name"
 					value={this.state.username}
 					errorText={this.state.usernameError}
 					onChange={this.handleChange}
-				/>
-				<label htmlFor="password">Password: </label>
+				/><br />
 				<TextField
 					type="password"
 					name="password"
+					floatingLabelText="Password"
 					value={this.state.password}
 					errorText={this.state.passwordError}
 					onChange={this.handleChange}
-				/>
-				<label htmlFor="confirmPassword">Confirm Password: </label>
+				/><br />
 				<TextField
 					type="password"
 					name="confirmPassword"
+					floatingLabelText="Confirm Password"
 					value={this.state.confirmPassword}
 					errorText={this.state.confirmPasswordError}
 					onChange={this.handleChange}
-				/>
-				<button onClick={this.handleSubmit}>Sign up</button>
+				/><br />
+				<button className="btn-test" onClick={this.handleSubmit}>SignUp</button>
 			</div>
 			</form>
 			</MuiThemeProvider>
