@@ -13,7 +13,8 @@ button.btn-test,
   background-color: #b31e3f;
   border-color: #b31e3f;
   color: white;
-  margin-right: 5px; }
+  margin-right: 5px;
+  margin-top: 10px; }
   button.btn-test:hover,
   .btn-test:hover:hover,
   .btn-test:active:hover,
