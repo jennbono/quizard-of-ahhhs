@@ -13,6 +13,7 @@ button.btn-test,
       border-color: $rubyRed;
       color: white;
       margin-right: 5px;
+      margin-top: 10px;
       &:hover {
         background: lighten($rubyRed, 5);
       }

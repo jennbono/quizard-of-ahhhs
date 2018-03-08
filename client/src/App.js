@@ -7,7 +7,7 @@ import LogIn from "./pages/LogIn";
 import Question from "./pages/Question";
 import Winner from "./pages/Winner";
 // import LoginForm from './components/Login/LoginForm'
-import SignupForm from './components/SignupForm'
+import Signup from './pages/Signup'
 //import Header from './components/Header'
 //import Status from './components/Status'
 //import './css/App.css';
@@ -96,7 +96,7 @@ class App extends Component {
                   _googleSignin={this._googleSignin}
                 />}
             /> */}
-            <Route exact path="/signup" component={SignupForm} />
+            <Route exact path="/signup" component={Signup} />
             {/* <LoginForm _login={this._login} /> */}
           </div>
         </Router>
