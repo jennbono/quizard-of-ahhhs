@@ -78,11 +78,15 @@ class LogIn extends Component {
 
 
   handleSubmit(event) {
-    event.preventDefault()
+    event.preventDefault();
     const err = this.validate();
     if (!err) {
-      console.log('handleSubmit')
-      this._login(this.state.username, this.state.password)
+      console.log('handleSubmit');
+      this._login(this.state.username, this.state.password);
+      this.setState({
+        usernameError: '',
+        passwordError: ''
+      })
     }
 
 
