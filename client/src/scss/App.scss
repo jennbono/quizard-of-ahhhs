@@ -29,7 +29,7 @@ div.card-header.default{
     color: white;
 }
 
-h3, h4, h6, p {
+h3, h4, h6, p, .form-label {
   @include allOtherFont;
 }
 // End of Card
@@ -59,4 +59,8 @@ div.card-header.winner {
 
 .winner-logo {
   margin-bottom: 15px;
+}
+
+.google-button {
+  margin-top: 25px;
 }

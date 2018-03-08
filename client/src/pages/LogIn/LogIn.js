@@ -8,14 +8,14 @@ import axios from "axios";
 class LogIn extends Component {
   constructor() {
     super()
- 
+
     this.state = {
       username: '',
       password: '',
       redirectTo: null,
       loggedIn: false,
       user: null
- 
+
     }
     // this.googleSignin = this.googleSignin.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -51,9 +51,9 @@ class LogIn extends Component {
     event.preventDefault()
     console.log('handleSubmit')
     this._login(this.state.username, this.state.password)
-   
-     
-  
+
+
+
   }
   componentDidMount() {
     axios.get('/auth/user').then(response => {
@@ -82,27 +82,29 @@ class LogIn extends Component {
           <Container fluid>
             <Row>
               <Col size="md-6">
-                <img src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
+                <div className="text-center" >
+                  <img src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
+                </div>
                 <form>
-                  <Label htmlFor="username">Username: </Label>
+                  <Label htmlFor="username">Username</Label>
                   <Input
                     type="text"
                     name="username"
                     value={this.state.username}
                     onChange={this.handleChange}
                   />
-                  <Label htmlFor="password">Password: </Label>
+                  <Label htmlFor="password">Password</Label>
                   <Input
                     type="password"
                     name="password"
                     value={this.state.password}
                     onChange={this.handleChange}
                   />
-                  <button onClick={this.handleSubmit}>Login</button>
+                  <button className="btn-test" onClick={this.handleSubmit}>Login</button>
                 </form>
                 <a href="/auth/google">
                   {/* <GoogleButton /> */}
-                  <img src="../img/google_signin.png" alt="Sign into Google Button" />
+                  <img className="google-button" src="../img/google_signin.png" alt="Sign into Google Button" />
                 </a>
               </Col>
             </Row>
