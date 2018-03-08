@@ -119,23 +119,31 @@ class LogIn extends Component {
                   <img src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
                 </div>
                 <form>
-                  <Label htmlFor="username">Username: </Label>
+                  {/* <Label htmlFor="username">Username: </Label> */}
                   <TextField
                     type="text"
                     name="username"
+                    floatingLabelText="User Name"
                     value={this.state.username}
                     errorText={this.state.usernameError}
                     onChange={this.handleChange}
-                  />
-                  <Label htmlFor="password">Password: </Label>
+                  /><br/>
+                  {/* <Label htmlFor="password">Password: </Label> */}
                   <TextField
                     type="password"
                     name="password"
+                    floatingLabelText="Password"
                     value={this.state.password}
                     errorText={this.state.passwordError}
                     onChange={this.handleChange}
+<<<<<<< HEAD
+                    //floatingLabelFixed
+                  /><br />
+                  <button onClick={this.handleSubmit}>Login</button>
+=======
                   />
                   <button className="btn-test" onClick={this.handleSubmit}>Login</button>
+>>>>>>> fb53412a64a7f05d4009faa34eb6d6016ab052cd
                 </form>
                 <a href="/auth/google">
                   {/* <GoogleButton /> */}
