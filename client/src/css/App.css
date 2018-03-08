@@ -28,7 +28,7 @@ div.card-header.default {
   background-color: #b31e3f;
   color: white; }
 
-h3, h4, h6, p {
+h3, h4, h6, p, .form-label {
   font-family: 'Nanum Myeongjo', serif; }
 
 button.btn.btn-outline-dark.answer-btn {
@@ -50,3 +50,6 @@ div.card-header.winner {
 
 .winner-logo {
   margin-bottom: 15px; }
+
+.google-button {
+  margin-top: 25px; }
