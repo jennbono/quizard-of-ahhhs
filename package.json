@@ -22,7 +22,6 @@
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.1.2"
   },
-  "devDependencies": {},
   "scripts": {
     "server": "node server.js",
     "client": "node scripts/start-client.js",
@@ -36,8 +35,5 @@
     "url": "git+https://github.com/jennbono/quizard-of-ahhhs.git"
   },
   "author": "Bala Jenn Jill Sarah",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jennbono/quizard-of-ahhhs/issues"
-  }
+  "license": "ISC"
 }
