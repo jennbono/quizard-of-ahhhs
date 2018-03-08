@@ -4,6 +4,9 @@ import Navbar from "../../components/Nav";
 import { Col, Container, Row } from "../../components/Grid";
 import { Input, Label, FormBtn } from "../../components/Form";
 import axios from "axios";
+import TextField from "material-ui/TextField";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 
 class LogIn extends Component {
   constructor() {
@@ -11,7 +14,9 @@ class LogIn extends Component {
  
     this.state = {
       username: '',
+      usernameError: '',
       password: '',
+      passwordError: '',
       redirectTo: null,
       loggedIn: false,
       user: null
@@ -47,12 +52,38 @@ class LogIn extends Component {
         }
       })
   }
+
+  validate = () => {
+		let isError = false;
+		const errors = {
+			usernameError: "",
+			passwordError: ""
+		};
+
+		if (this.state.username.length == 0) {
+			isError = true;
+			errors.usernameError = "UserName is required";
+		}
+		if (this.state.password.length == 0) {
+			isError = true;
+			errors.passwordError = "Password is required";
+		}
+
+		this.setState({
+			...this.state,
+			...errors
+		});
+		return isError;
+	}
+
+
   handleSubmit(event) {
     event.preventDefault()
-    console.log('handleSubmit')
-    this._login(this.state.username, this.state.password)
-   
-     
+    const err = this.validate();
+		if(!err){
+			console.log('handleSubmit')
+			this.props._login(this.state.username, this.state.password)
+		}
   
   }
   componentDidMount() {
@@ -77,6 +108,7 @@ class LogIn extends Component {
       return <Redirect to={{ pathname: this.state.redirectTo }} />
     } else {
       return (
+        <MuiThemeProvider>
         <div>
           <Navbar _logout={this._logout} loggedIn={this.state.loggedIn} />
           <Container fluid>
@@ -85,17 +117,19 @@ class LogIn extends Component {
                 <img src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
                 <form>
                   <Label htmlFor="username">Username: </Label>
-                  <Input
+                  <TextField
                     type="text"
                     name="username"
                     value={this.state.username}
+                    errorText={this.state.usernameError}
                     onChange={this.handleChange}
                   />
                   <Label htmlFor="password">Password: </Label>
-                  <Input
+                  <TextField
                     type="password"
                     name="password"
                     value={this.state.password}
+                    errorText={this.state.passwordError}
                     onChange={this.handleChange}
                   />
                   <button onClick={this.handleSubmit}>Login</button>
@@ -108,6 +142,7 @@ class LogIn extends Component {
             </Row>
           </Container>
         </div>
+        </MuiThemeProvider>
       )
     }
   }
