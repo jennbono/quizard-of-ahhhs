@@ -82,6 +82,12 @@ class SignupForm extends Component {
 					console.log('duplicate')
 				}
 			})
+			this.setState({
+				usernameError: "",
+				passwordError: "",
+				confirmPasswordError: "",
+
+			})
 
 		}
 	}
