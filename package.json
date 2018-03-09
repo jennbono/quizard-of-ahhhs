@@ -6,7 +6,7 @@
   "scripts": {
     "server": "node server",
     "client": "node scripts/start-client.js",
-    "start": "nodemon server && yarn run client",
+    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
     "build": "node scripts/build.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "installDeps": "yarn && cd client && yarn"
