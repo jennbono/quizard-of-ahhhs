@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001/",
-  "homepage": "http://localhost:3001/",
   "dependencies": {
     "axios": "^0.18.0",
     "material-ui": "^0.18.7",
