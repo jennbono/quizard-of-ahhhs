@@ -1,0 +1,31 @@
+.App {
+  text-align: center; }
+
+.main-logo {
+  align-content: center; }
+
+button.btn-success,
+.btn-success:hover,
+.btn-success:active,
+.btn-success:visited,
+.btn-success:focus {
+  background-color: #b31e3f;
+  border-color: #b31e3f;
+  margin-right: 5px; }
+  button.btn-success:hover,
+  .btn-success:hover:hover,
+  .btn-success:active:hover,
+  .btn-success:visited:hover,
+  .btn-success:focus:hover {
+    background: #c92247; }
+
+div.card-header.bg-success {
+  background-color: #b31e3f; }
+
+button.btn.btn-outline-dark.answer-btn {
+  color: #b31e3f;
+  border-color: #b31e3f;
+  margin: 10px; }
+  button.btn.btn-outline-dark.answer-btn:hover {
+    background: #c92247;
+    color: white; }
