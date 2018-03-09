@@ -9,13 +9,8 @@
     "start": "nodemon server && yarn run client",
     "build": "node scripts/build.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "installDeps": "yarn && cd client && yarn",
-    "heroku-postbuild": "cd react-ui/ && yarn && yarn --only=dev --no-shrinkwrap && yarn run build"
+    "installDeps": "yarn && cd client && yarn"
   },
-  "cacheDirectories": [
-    "node_modules",
-    "react-ui/node_modules"
-  ],
   "author": "Bala Jenn Jill Sarah",
   "license": "ISC",
   "devDependencies": {
