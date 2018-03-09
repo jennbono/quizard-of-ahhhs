@@ -20,16 +20,6 @@ app.use(bodyParser.json());
 app.use(express.static("./client/build"));
 // Add routes, both API and view
 
-// Set up promises with mongoose
-mongoose.Promise = global.Promise;
-// Connect to the Mongo DB
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/quizardofahhhs",
-  {
-    useMongoClient: true
-  }
-);
-
 app.use(
 	session({
 		secret: process.env.APP_SECRET || 'this is the default one',
