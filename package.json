@@ -9,8 +9,8 @@
     "start": "nodemon server && yarn run client",
     "build": "node scripts/build.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "installDeps": "npm install && cd client && npm install",
-    "heroku-postbuild": "cd react-ui/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "installDeps": "yarn && cd client && yarn",
+    "heroku-postbuild": "cd react-ui/ && yarn && yarn --only=dev --no-shrinkwrap && yarn run build"
   },
   "cacheDirectories": [
     "node_modules",
@@ -36,7 +36,6 @@
     "passport-google-oauth": "^1.0.0",
     "passport-google-oauth20": "^1.0.0",
     "passport-local": "^1.0.0",
-    "path": "^0.12.7",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.1.2"
