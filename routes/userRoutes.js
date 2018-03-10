@@ -8,6 +8,18 @@ router.get("/api/users", (req, res) => {
     }
 );
 
+router.get('leaderboard', (req, res) =>{
+  Users.find({}).sort({highscore: -1}).limit(5).then(function (err, data) {
+    res.json(data);
+    console.log(data);
+  })
+})
+// ProjectModel.find({projectName: 'name'}).sort({viewCount: -1}).limit(5).exec( 
+//   function(err, projects) {
+//       ...
+//   }
+// );
+
 router.post("/api/users", (req, res) => {
     Users.create(req.body).then(function (err, data) {
         res.json(data)

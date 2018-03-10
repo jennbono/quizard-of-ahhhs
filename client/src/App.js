@@ -6,7 +6,8 @@ import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import Question from "./pages/Question";
 import Winner from "./pages/Winner";
-import Start from "./pages/Start"
+import Start from "./pages/Start";
+import Leaderboard from "./pages/Leaderboard";
 // import LoginForm from './components/Login/LoginForm'
 import Signup from './pages/Signup'
 //import Header from './components/Header'
@@ -86,6 +87,7 @@ class App extends Component {
             <Route exact path="/question" component={Question} user={this.state.user}/>
             <Route exact path="/winner" component={Winner} user={this.state.user}/>
             <Route exact path="/start" component={Start} user={this.state.user}/>
+            <Route exact path="/leaderboard" component={Leaderboard} user={this.state.user}/>
             {/*  ROUTES */}
             {/* <Route exact path="/" component={Status} /> */}
             {/* <Route exact path="/" render={() => <Status user={this.state.user} />} /> */}
