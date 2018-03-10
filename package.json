@@ -10,7 +10,7 @@
   "scripts": {
     "server": "node server",
     "client": "node scripts/start-client.js",
-    "start": "node server.js && npm run client",
+    "start": "node server.js && yarn run client",
     "build": "node scripts/build.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "installDeps": "yarn && cd client && yarn"
