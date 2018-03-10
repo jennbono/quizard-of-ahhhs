@@ -50,10 +50,8 @@ h6 {
 p {
   font-size: 20px; }
 
-.card.login {
-  background-color: rgba(0, 0, 0, 0.7); }
-  .card.login .textareaStyle {
-    color: white; }
+.textareaStyle {
+  color: white; }
 
 button.btn.answer-btn {
   background-color: #b31e3f;
