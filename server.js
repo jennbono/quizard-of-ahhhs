@@ -20,7 +20,6 @@ app.use(bodyParser.json());
 app.use(express.static("./client/build"));
 // Add routes, both API and view
 
-
 app.use(
 	session({
 		secret: process.env.APP_SECRET || 'this is the default one',
