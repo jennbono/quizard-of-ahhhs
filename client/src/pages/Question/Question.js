@@ -129,7 +129,7 @@ class Question extends Component {
                   {this.state.answers.map((option, index) => {
                     return (
                       <div key={index}>
-                        <button type="button" className="btn btn-outline-dark answer-btn text-center" onClick={() => this.scoreAnswer(index)}>{entities.decode(option)}</button>
+                        <button type="button" className="btn answer-btn text-center" onClick={() => this.scoreAnswer(index)}>{entities.decode(option)}</button>
                         <br />
                       </div>
                     );
