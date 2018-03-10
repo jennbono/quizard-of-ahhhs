@@ -140,7 +140,7 @@ class Question extends Component {
             ) : (
                 <Col size="md-6">
                   {/* answer component */}
-                  <img className="mx-auto d-block" src="img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
+                  <img className="mx-auto d-block" src="img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="150" />
 
                 <Card>
                   <CardHeader><h1 className="text-center">Question {this.state.questionNum}</h1></CardHeader>
