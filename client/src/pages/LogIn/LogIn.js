@@ -15,6 +15,9 @@ const styles = {
   },
   underlineStyle: {
     borderColor: yellow500,
+  },
+  inputStyle: {
+    color: yellow500,
   }
 };
 
@@ -132,10 +135,10 @@ class LogIn extends Component {
                   <div className="text-center" >
                     <img src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
                     <form>
-                      <Card>
-                        <CardBody>
                           {/* <Label htmlFor="username">Username: </Label> */}
-                          <TextField floatingLabelText="Styled Floating Label Text"
+                          <TextField 
+                            inputStyle={styles.inputStyle}
+                            floatingLabelText="Styled Floating Label Text"
                             floatingLabelStyle={styles.floatingLabelStyle}
                             hintText="Custom Underline Color"
                             underlineStyle={styles.underlineStyle}
@@ -149,7 +152,9 @@ class LogIn extends Component {
                             onChange={this.handleChange}
                           /><br />
                           {/* <Label htmlFor="password">Password: </Label> */}
-                          <TextField floatingLabelText="Styled Floating Label Text"
+                          <TextField 
+                            inputStyle={styles.inputStyle}
+                            floatingLabelText="Styled Floating Label Text"
                             floatingLabelStyle={styles.floatingLabelStyle}
                             hintText="Custom Underline Color"
                             underlineStyle={styles.underlineStyle}
@@ -164,8 +169,6 @@ class LogIn extends Component {
                           />
                           <br />
                           <button className="btn-test" onClick={this.handleSubmit}>Login</button>
-                        </CardBody>
-                      </Card>
                     </form>
                     <a href="/auth/google">
                       {/* <GoogleButton /> */}

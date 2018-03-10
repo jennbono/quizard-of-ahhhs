@@ -15,6 +15,9 @@ const styles = {
   },
   floatingLabelTextStyle: {
     color: yellow500,
+  },
+  inputStyle: {
+    color: yellow500,
   }
 };
 
@@ -112,7 +115,9 @@ class Signup extends Component {
             <img src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
             <form>
               <div className="SignupForm">
-                <TextField floatingLabelText="Styled Floating Label Text"
+                <TextField 
+                  inputStyle={styles.inputStyle}
+                  floatingLabelText="Styled Floating Label Text"
                   floatingLabelStyle={styles.floatingLabelStyle}
                   hintText="Custom Underline Color"
                   underlineStyle={styles.underlineStyle}
@@ -128,7 +133,9 @@ class Signup extends Component {
                   errorText={this.state.usernameError}
                   onChange={this.handleChange}
                 /><br />
-                <TextField floatingLabelText="Styled Floating Label Text"
+                <TextField 
+                  inputStyle={styles.inputStyle}
+                  floatingLabelText="Styled Floating Label Text"
                   floatingLabelStyle={styles.floatingLabelStyle}
                   hintText="Custom Underline Color"
                   underlineStyle={styles.underlineStyle}
@@ -144,7 +151,9 @@ class Signup extends Component {
                   errorText={this.state.passwordError}
                   onChange={this.handleChange}
                 /><br />
-                <TextField floatingLabelText="Styled Floating Label Text"
+                <TextField 
+                  inputStyle={styles.inputStyle}
+                  floatingLabelText="Styled Floating Label Text"
                   floatingLabelStyle={styles.floatingLabelStyle}
                   hintText="Custom Underline Color"
                   underlineStyle={styles.underlineStyle}
