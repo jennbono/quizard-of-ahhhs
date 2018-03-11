@@ -20,36 +20,42 @@ class Leaderboard extends Component {
   componentDidMount() {
     axios.get('/auth/leaderboard').then(response => {
       console.log(response.data);
-       this.setState({
-          data: response.data
-        })    
+      this.setState({
+        data: response.data
+      })
     })
   }
-  render() { 
+  render() {
 
- 
-    
+
+
     let result = this.state.data.map(score => ({ value: score.name, text: score.highscore }));
     console.log(result)
     var text = "jill";
     var resultScores;
     return (
       <div>
-         <Navbar  _logout={this._logout} loggedIn={this.state.loggedIn}/>
-         <Container fluid>
-            <Card>
-              <CardHeader><h1 className="text-center">Leaderboard </h1></CardHeader>
-                  <CardBody> 
-                    {resultScores = result.map(topScores => 
-                      <h5>{topScores.value}  {topScores.text} </h5> 
-                    )}
+        <Navbar _logout={this._logout} loggedIn={this.state.loggedIn} />
+        <Container fluid>
+          <Row>
+            <Col size="md-6">
+              <img className="mx-auto d-block" src="img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
+              <Card>
+                <CardHeader><h1 className="text-center">Leaderboard</h1>
+                </CardHeader>
+                <CardBody>
+                  {resultScores = result.map(topScores =>
+                    <h5>{topScores.value}  {topScores.text} </h5>
+                  )}
                 </CardBody>
               </Card>
-            </Container>
+            </Col>
+          </Row>
+        </Container>
       </div>
-      
+
     );
-    
+
   }
 }
 export default Leaderboard;
