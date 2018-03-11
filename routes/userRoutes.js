@@ -8,12 +8,12 @@ router.get("/api/users", (req, res) => {
     }
 );
 
-router.get('leaderboard', (req, res) =>{
-  Users.find({}).sort({highscore: -1}).limit(5).then(function (err, data) {
-    res.json(data);
-    console.log(data);
-  })
-})
+// router.get('/leaderboard', (req, res) =>{
+//   Users.find({}).sort({highscore: -1}).limit(5).then(function (err, data) {
+//     res.json(data);
+//     console.log(data);
+//   })
+// })
 // ProjectModel.find({projectName: 'name'}).sort({viewCount: -1}).limit(5).exec( 
 //   function(err, projects) {
 //       ...
@@ -45,6 +45,14 @@ router.post('/api/users/highscore/:id', (req, res) => {
       }
     })
   });
-
+  // router.get('/leaderboard', (req, res) =>{
+  //   console.log("another leader");
+  //   Users.find({}).sort({highscore: -1}).limit(5).then(function (err, data) {
+  //     res.json(data);
+  //     console.log(data);
+  //     console.log("inside leaderboard");
+  //   })
+  //   })
+  
 
 module.exports = router;
