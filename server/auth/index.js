@@ -72,5 +72,14 @@ router.post('/signup', (req, res) => {
 		})
 	})
 })
+// User.find({},null, {sort: {highscore: -1}}).then(function (err, data)
+router.get('/leaderboard', (req, res) =>{
+	console.log("another leader");
+	User.find({}).sort({highscore: -1}).exec(function (err, data) {
+	  res.json(data);
+	  console.log(data);
+	  console.log("inside leaderboard");
+	})
+  })
 
 module.exports = router
