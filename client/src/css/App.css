@@ -4,6 +4,11 @@
   font-weight: normal;
   font-style: normal; }
 
+body {
+  background-image: url("/img/bg.png");
+  background-position: top;
+  background-size: 100% auto; }
+
 button.btn-test,
 .btn-test:hover,
 .btn-test:active,
@@ -29,6 +34,10 @@ div.card-header.default {
   background-color: #b31e3f;
   color: white; }
 
+.card.default {
+  background-color: grey;
+  color: white; }
+
 h3, h4, h6, p, .form-label {
   font-family: 'Nanum Myeongjo', serif; }
 
@@ -41,12 +50,16 @@ h6 {
 p {
   font-size: 20px; }
 
-button.btn.btn-outline-dark.answer-btn {
-  color: #b31e3f;
+.textareaStyle {
+  color: white; }
+
+button.btn.answer-btn {
+  background-color: #b31e3f;
+  color: white;
   border-color: #b31e3f;
   font-family: 'Nanum Myeongjo', serif;
   margin: 10px; }
-  button.btn.btn-outline-dark.answer-btn:hover {
+  button.btn.answer-btn:hover {
     background: #c92247;
     color: white; }
 

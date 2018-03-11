@@ -2,11 +2,24 @@ import React, { Component } from "react";
 import { Redirect } from 'react-router-dom';
 import Navbar from "../../components/Nav";
 import { Col, Container, Row } from "../../components/Grid";
+import { Card, CardBody, CardHeader } from "../../components/Card";
 import { Input, Label, FormBtn } from "../../components/Form";
 import axios from "axios";
 import TextField from "material-ui/TextField";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { yellow500 } from 'material-ui/styles/colors';
 
+const styles = {
+  floatingLabelStyle: {
+    color: yellow500,
+  },
+  underlineStyle: {
+    borderColor: yellow500,
+  },
+  inputStyle: {
+    color: yellow500,
+  }
+};
 
 class LogIn extends Component {
   constructor() {
@@ -122,25 +135,40 @@ class LogIn extends Component {
                   <div className="text-center" >
                     <img src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
                     <form>
-                      {/* <Label htmlFor="username">Username: </Label> */}
-                      <TextField
-                        type="text"
-                        name="username"
-                        floatingLabelText="User Name"
-                        value={this.state.username}
-                        errorText={this.state.usernameError}
-                        onChange={this.handleChange}
-                      /><br />
-                      {/* <Label htmlFor="password">Password: </Label> */}
-                      <TextField
-                        type="password"
-                        name="password"
-                        floatingLabelText="Password"
-                        value={this.state.password}
-                        errorText={this.state.passwordError}
-                        onChange={this.handleChange}
-                      /><br />
-                      <button className="btn-test" onClick={this.handleSubmit}>Login</button>
+                          {/* <Label htmlFor="username">Username: </Label> */}
+                          <TextField 
+                            inputStyle={styles.inputStyle}
+                            floatingLabelText="Styled Floating Label Text"
+                            floatingLabelStyle={styles.floatingLabelStyle}
+                            hintText="Custom Underline Color"
+                            underlineStyle={styles.underlineStyle}
+                            hintText="Custom Underline Focus Color"
+                            underlineFocusStyle={styles.underlineStyle}
+                            type="text"
+                            name="username"
+                            floatingLabelText="User Name"
+                            value={this.state.username}
+                            errorText={this.state.usernameError}
+                            onChange={this.handleChange}
+                          /><br />
+                          {/* <Label htmlFor="password">Password: </Label> */}
+                          <TextField 
+                            inputStyle={styles.inputStyle}
+                            floatingLabelText="Styled Floating Label Text"
+                            floatingLabelStyle={styles.floatingLabelStyle}
+                            hintText="Custom Underline Color"
+                            underlineStyle={styles.underlineStyle}
+                            hintText="Custom Underline Focus Color"
+                            underlineFocusStyle={styles.underlineStyle}
+                            type="password"
+                            name="password"
+                            floatingLabelText="Password"
+                            value={this.state.password}
+                            errorText={this.state.passwordError}
+                            onChange={this.handleChange}
+                          />
+                          <br />
+                          <button className="btn-test" onClick={this.handleSubmit}>Login</button>
                     </form>
                     <a href="/auth/google">
                       {/* <GoogleButton /> */}

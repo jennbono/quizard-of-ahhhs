@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001/",
-  "homepage": "http://localhost:3001/",
+  "engines": {
+    "node": ">= 9.7.1",
+    "npm": ">= 5.6.0"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "material-ui": "^0.18.7",
@@ -16,7 +19,7 @@
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "watch-css": "yarn run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

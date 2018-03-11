@@ -2,6 +2,13 @@
 @import "Font";
 @import "Mixins";
 
+// Background
+body {
+  background-image: url("/img/bg.png");
+  background-position: top;
+  background-size: 100% auto;
+}
+
 // Navbar
 button.btn-test,
   .btn-test:hover,
@@ -25,9 +32,14 @@ button.btn-test,
 // End of Navbar
 
 // Card
-div.card-header.default{
+div.card-header.default {
     background-color: $rubyRed;
     color: white;
+}
+
+.card.default {
+  background-color: grey;
+  color: white;
 }
 
 h3, h4, h6, p, .form-label {
@@ -47,9 +59,16 @@ p {
 }
 // End of Card
 
+// Login Card
+.textareaStyle {
+  color: white;
+}
+
+
 // Question Page
-button.btn.btn-outline-dark.answer-btn {
-  color: $rubyRed;
+button.btn.answer-btn {
+  background-color: $rubyRed;
+  color: white;
   border-color: $rubyRed;
   @include allOtherFont;
   margin: 10px;

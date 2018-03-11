@@ -116,7 +116,7 @@ class Question extends Component {
             {this.state.questionOn ? (
               <Col size="md-6">
                 {/* question component */}
-                <img className="mx-auto d-block" src="img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
+                <img className="mx-auto d-block" src="img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="150" />
 
                 <Card>
                   <CardHeader className="default"><h1 className="text-center">Question {this.state.questionNum}</h1></CardHeader>
@@ -129,7 +129,7 @@ class Question extends Component {
                   {this.state.answers.map((option, index) => {
                     return (
                       <div key={index}>
-                        <button type="button" className="btn btn-outline-dark answer-btn text-center" onClick={() => this.scoreAnswer(index)}>{entities.decode(option)}</button>
+                        <button type="button" className="btn answer-btn text-center" onClick={() => this.scoreAnswer(index)}>{entities.decode(option)}</button>
                         <br />
                       </div>
                     );
@@ -140,7 +140,7 @@ class Question extends Component {
             ) : (
                 <Col size="md-6">
                   {/* answer component */}
-                  <img className="mx-auto d-block" src="img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
+                  <img className="mx-auto d-block" src="img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="150" />
 
                 <Card>
                   <CardHeader><h1 className="text-center">Question {this.state.questionNum}</h1></CardHeader>

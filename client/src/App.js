@@ -8,11 +8,9 @@ import Question from "./pages/Question";
 import Winner from "./pages/Winner";
 import Start from "./pages/Start";
 import Leaderboard from "./pages/Leaderboard";
-// import LoginForm from './components/Login/LoginForm'
-import Signup from './pages/Signup'
-//import Header from './components/Header'
-//import Status from './components/Status'
-//import './css/App.css';
+import Signup from './pages/Signup';
+import './css/App.css';
+import './css/font.css';
 
 
 class App extends Component {
