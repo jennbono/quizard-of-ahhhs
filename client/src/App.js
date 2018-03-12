@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import Question from "./pages/Question";
 import Winner from "./pages/Winner";
+import Loser from "./pages/Loser";
 import Start from "./pages/Start";
 import Leaderboard from "./pages/Leaderboard";
 import Signup from './pages/Signup';
@@ -84,6 +85,7 @@ class App extends Component {
             <Route exact path="/login" component={LogIn} user={this.state.user}/>
             <Route exact path="/question" component={Question} user={this.state.user}/>
             <Route exact path="/winner" component={Winner} user={this.state.user}/>
+            <Route exact path="/loser" component={Loser} user={this.state.user}/>
             <Route exact path="/start" component={Start} user={this.state.user}/>
             <Route exact path="/leaderboard" component={Leaderboard} user={this.state.user}/>
             {/*  ROUTES */}
