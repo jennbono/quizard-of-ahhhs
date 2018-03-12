@@ -29,7 +29,7 @@ class Loser extends Component {
                   <h3 className="text-center">The Wicked Witch of the West has summoned her monkeys to fly you away from the Emerald Quizity!  Try again next time! </h3>
                 </CardBody>
               </Card>
-              {/* Need to insert button to enter the Quizard of Ahhhs (questions page) ONLY IF LOGGED IN */}
+              {/* Need to insert button to enter the questions page to play again ONLY IF LOGGED IN */}
             </Col>
           </Row>
         </Container>
