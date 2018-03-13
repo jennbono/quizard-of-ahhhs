@@ -39,8 +39,7 @@ class Leaderboard extends Component {
 
     let result = this.state.data.map(score => ({ value: score.name, text: score.highscore }));
     console.log(result)
-    var text = "jill";
-    var resultScores;
+    var resultScores
     return (
       <div>
         <Navbar _logout={this._logout} loggedIn={this.state.loggedIn} />
