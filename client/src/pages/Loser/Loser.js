@@ -3,7 +3,7 @@ import ReactPlayer from 'react-player';
 import Navbar from "../../components/Nav";
 import { Col, Container, Row } from "../../components/Grid";
 import { Card, CardBody, CardHeader } from "../../components/Card";
-
+import { Redirect } from 'react-router-dom';
 
 
 class Loser extends Component {
@@ -11,8 +11,17 @@ class Loser extends Component {
     super(props);
     this.state = {};
   };
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.setState({
+        redirectTo: '/question'
+      })    
+  }
 
   render() {
+    if (this.state.redirectTo) {
+      return <Redirect to={{ pathname: this.state.redirectTo }} />
+    }
     return (
       <div>
         <Navbar _logout={this._logout} loggedIn={this.state.loggedIn} />
@@ -23,6 +32,7 @@ class Loser extends Component {
               <Card>
                 <CardBody>
                   <h3 className="text-center">The Wicked Witch of the West has summoned her monkeys to fly you away from the Emerald Quizity!  Try again next time! </h3>
+                  <button className="btn-test text-center" onClick={this.handleSubmit}>Start Again</button>
                 </CardBody>
               </Card>
               {/* Need to insert button to enter the questions page to play again ONLY IF LOGGED IN */}

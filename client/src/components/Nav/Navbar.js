@@ -11,7 +11,8 @@ class Navbar extends Component {
         loggedIn: false,
         user: null
      }
-     this._logout = this._logout.bind(this)
+     this._logout = this._logout.bind(this);
+     this._leaderBoard = this._leaderBoard.bind(this);
   }
   componentDidMount() {
     axios.get('/auth/user').then(response => {
@@ -46,6 +47,12 @@ class Navbar extends Component {
       }
     })
   }
+  _leaderBoard(event){
+      event.preventDefault();
+      this.setState({
+          redirectTo: '/leaderboard'
+      })
+  }
   render() {
     if (this.state.redirectTo) {
         return <Redirect to={{ pathname: this.state.redirectTo }} />
@@ -68,6 +75,11 @@ class Navbar extends Component {
                     <li>
                         <Link to="#" className="nav-link" onClick={this._logout}>
                             Logout
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="#" className="nav-link" onClick={this._leaderBoard}>
+                            LeaderBoard
                         </Link>
                     </li>
                     <li>
