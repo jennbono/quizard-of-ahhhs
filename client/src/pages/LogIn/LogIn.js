@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { Redirect } from 'react-router-dom';
 import Navbar from "../../components/Nav";
 import { Col, Container, Row } from "../../components/Grid";
-import { Card, CardBody, CardHeader } from "../../components/Card";
-import { Input, Label, FormBtn } from "../../components/Form";
 import axios from "axios";
 import TextField from "material-ui/TextField";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -73,11 +71,11 @@ class LogIn extends Component {
       passwordError: ""
     };
 
-    if (this.state.username.length == 0) {
+    if (this.state.username.length === 0) {
       isError = true;
       errors.usernameError = "UserName is required";
     }
-    if (this.state.password.length == 0) {
+    if (this.state.password.length === 0) {
       isError = true;
       errors.passwordError = "Password is required";
     }
