@@ -1,24 +1,26 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import axios from "axios";
  
 class Navbar extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
  
     this.state = {
         loggedIn: false,
         user: null
      }
-     this._logout = this._logout.bind(this);
-     this._leaderBoard = this._leaderBoard.bind(this);
+     this._logout = this._logout.bind(this)
   }
   componentDidMount() {
     axios.get('/auth/user').then(response => {
-      console.log(response.data)
-      if (!!response.data.user) {
-        console.log('THERE IS A USER')
+    let sessionData = sessionStorage.getItem('user');
+      console.log(response)
+      console.log(sessionData);
+      console.log(this.state.user);
+      if (response.data.user || sessionData) {
+        console.log('THERE IS A USER');
         this.setState({
           loggedIn: true,
           user: response.data.user
@@ -47,17 +49,11 @@ class Navbar extends Component {
       }
     })
   }
-  _leaderBoard(event){
-      event.preventDefault();
-      this.setState({
-          redirectTo: '/leaderboard'
-      })
-  }
   render() {
     if (this.state.redirectTo) {
         return <Redirect to={{ pathname: this.state.redirectTo }} />
       } 
-    if(this.state.loggedIn){
+    if(this.state.loggedIn || this.props.loggedIn){
         return(
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <a className="navbar-brand" href="/home">Quizard of Ahhhs...</a>
@@ -76,14 +72,6 @@ class Navbar extends Component {
                         <Link to="#" className="nav-link" onClick={this._logout}>
                             Logout
                         </Link>
-                    </li>
-                    <li>
-                        <Link to="#" className="nav-link" onClick={this._leaderBoard}>
-                            LeaderBoard
-                        </Link>
-                    </li>
-                    <li>
-                        {this.state.user.username}
                     </li>
                 </ul>
             </div>

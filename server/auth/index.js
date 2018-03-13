@@ -43,6 +43,29 @@ router.post(
 	}
 )
 
+router.post('/saveGoogleUser', (req, res) => {
+	const { googleId, firstName, lastName, email, token } = req.body;
+	// ADD VALIDATION
+	User.findOne({ 'google.googleId': googleId }, (err, userMatch) => {
+		if (userMatch) {
+			return res.json({
+				error: `Sorry, already a user with the googleId: ${googleId}`
+			})
+		}
+		const newUser = new User({
+			'google.googleId': googleId,
+			firstName: firstName,
+			lastName: lastName,
+			email: email,
+			token: token
+		})
+		newUser.save((err, savedUser) => {
+			if (err) return res.json(err)
+			return res.json(savedUser)
+		})
+	})
+})
+
 router.post('/logout', (req, res) => {
 	if (req.user) {
 		req.session.destroy()
