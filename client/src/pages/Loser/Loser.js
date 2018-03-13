@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ReactHowler from 'react-howler';
+import ReactPlayer from 'react-player';
 import Navbar from "../../components/Nav";
 import { Col, Container, Row } from "../../components/Grid";
 import { Card, CardBody} from "../../components/Card";
@@ -24,10 +24,6 @@ class Loser extends Component {
     }
     return (
       <div>
-        <ReactHowler
-          src='audio/cackle3.mp3'
-          playing={true}
-        />
         <Navbar _logout={this._logout} loggedIn={this.state.loggedIn} />
         <Container fluid>
           <Row>
@@ -42,6 +38,12 @@ class Loser extends Component {
               {/* Need to insert button to enter the questions page to play again ONLY IF LOGGED IN */}
             </Col>
           </Row>
+          <ReactPlayer
+            url='audio/cackle3.mp3'
+            playing
+            width='0%'
+            height='0%'
+          />
         </Container>
       </div>
     )

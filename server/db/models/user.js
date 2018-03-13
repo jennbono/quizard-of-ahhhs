@@ -17,16 +17,7 @@ const userSchema = new Schema({
 	highscore: {type: Number, default: 0 },
 	email: {type: String, unique: false, required: false},
 	token: {type: String, unique: false, required: false}
-	// local: {
-	// 	email: { type: String, unique: true },
-	// 	password: { type: String }
-	// },
-	// google: {
-	// 	id: { type: String },
-	// 	photos: []
-	// },
-	// firstName: { type: String },
-	// lastName: { type: String }
+	date: { type: Date, default: Date.now }
 })
 
 // Define schema methods

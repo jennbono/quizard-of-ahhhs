@@ -14,7 +14,7 @@ class Question extends Component {
     this.state = {
       question: [],
       questionArr: [],
-      timer: 25,
+      timer: 15,
       answers: [],
       answerClicked: null,
       correctAnswerIndex: null,
@@ -44,10 +44,11 @@ class Question extends Component {
       timer: this.state.timer - 1
     });
     const timer = this.state.timer;
-    if ((timer + 5) % 25 === 10) {
+    console.log(timer);
+    if (timer % 15 === 5) {
       this.setState({ questionOn: false });
     }
-    else if (timer % 25 === 0) {
+    else if (timer % 15 === 0) {
       this.showQuestion();
     }
   }
@@ -57,8 +58,7 @@ class Question extends Component {
     if (questionNum === 0) {
       API.getQuestions()
       .then(res => {
-        this.setState({ questionArr: res.data.results, questionNum: questionNum+1, questionOn: true, timer: 25 });
-        console.log(res.data.results);
+        this.setState({ questionArr: res.data.results, questionNum: questionNum+1, questionOn: true, timer: 15 });
         this.makeAnswerArray();
     })
       .catch(err => console.log(err));
@@ -67,7 +67,7 @@ class Question extends Component {
       this.endRound();
     }
     else {
-      this.setState({ questionNum: questionNum+1, questionOn: true, timer: 25 });
+      this.setState({ questionNum: questionNum+1, questionOn: true, timer: 15 });
       this.makeAnswerArray();
     }
   }
