@@ -32,7 +32,7 @@ class Loser extends Component {
         <Container fluid>
           <Row>
             <Col size="md-6">
-              <img className="mx-auto d-block" src="img/lose_logo.png" alt="Loser Logo" height="250" />
+              <img className="mx-auto d-block logo" src="img/lose_logo.png" alt="Loser Logo" height="250" />
               <Card>
                 <CardBody>
                   <h3 className="text-center">The Wicked Witch of the West has summoned her monkeys to fly you away from the Emerald Quizity!  Try again next time! </h3>

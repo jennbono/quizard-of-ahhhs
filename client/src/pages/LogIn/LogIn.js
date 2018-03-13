@@ -7,17 +7,17 @@ import { Input, Label, FormBtn } from "../../components/Form";
 import axios from "axios";
 import TextField from "material-ui/TextField";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { yellow500 } from 'material-ui/styles/colors';
+import { grey50 } from 'material-ui/styles/colors';
 
 const styles = {
   floatingLabelStyle: {
-    color: yellow500,
+    color: grey50,
   },
   underlineStyle: {
-    borderColor: yellow500,
+    borderColor: grey50,
   },
   inputStyle: {
-    color: yellow500,
+    color: grey50,
   }
 };
 
@@ -133,7 +133,7 @@ class LogIn extends Component {
               <Row>
                 <Col size="md-6">
                   <div className="text-center" >
-                    <img src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
+                    <img className="logo" src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
                     <form>
                           {/* <Label htmlFor="username">Username: </Label> */}
                           <TextField 

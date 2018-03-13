@@ -4,20 +4,20 @@ import { Redirect } from 'react-router-dom';
 import TextField from "material-ui/TextField";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Navbar from "../../components/Nav";
-import { yellow500 } from 'material-ui/styles/colors';
+import { grey50 } from 'material-ui/styles/colors';
 
 const styles = {
   floatingLabelStyle: {
-    color: yellow500,
+    color: grey50,
   },
   underlineStyle: {
-    borderColor: yellow500,
+    borderColor: grey50,
   },
   floatingLabelTextStyle: {
-    color: yellow500,
+    color: grey50,
   },
   inputStyle: {
-    color: yellow500,
+    color: grey50,
   }
 };
 
@@ -112,7 +112,7 @@ class Signup extends Component {
         <div>
           <Navbar />
           <div className="text-center">
-            <img src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
+            <img className="logo" src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
             <form>
               <div className="SignupForm">
                 <TextField 
