@@ -15,7 +15,6 @@ class Loser extends Component {
   render() {
     return (
       <div>
-        <ReactPlayer url='audio/cackle3.mp3' playing />
         <Navbar _logout={this._logout} loggedIn={this.state.loggedIn} />
         <Container fluid>
           <Row>
@@ -29,6 +28,12 @@ class Loser extends Component {
               {/* Need to insert button to enter the questions page to play again ONLY IF LOGGED IN */}
             </Col>
           </Row>
+          <ReactPlayer
+            url='audio/cackle3.mp3'
+            playing
+            width='0%'
+            height='0%'
+          />
         </Container>
       </div>
     )
