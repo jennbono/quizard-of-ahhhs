@@ -116,7 +116,7 @@ class Question extends Component {
             {this.state.questionOn ? (
               <Col size="md-6">
                 {/* question component */}
-                <img className="mx-auto d-block" src="img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="150" />
+                <img className="mx-auto d-block logo" src="img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="150" />
 
                 <Card>
                   <CardHeader className="default"><h1 className="text-center">Question {this.state.questionNum}</h1></CardHeader>

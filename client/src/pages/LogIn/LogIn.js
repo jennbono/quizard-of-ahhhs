@@ -133,7 +133,7 @@ class LogIn extends Component {
               <Row>
                 <Col size="md-6">
                   <div className="text-center" >
-                    <img src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
+                    <img className="logo" src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
                     <form>
                           {/* <Label htmlFor="username">Username: </Label> */}
                           <TextField 

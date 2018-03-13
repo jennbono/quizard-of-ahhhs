@@ -32,7 +32,7 @@ class Start extends Component {
                     <Row>
                       <Col size="md-6">
                         <div className="text-center" >
-                          <img src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
+                          <img className="logo" src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
                             <Card>
                                 <CardHeader className="winner"><h1 className="text-center">You can now start the game</h1></CardHeader>
                                 <CardBody>
