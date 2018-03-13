@@ -55,15 +55,15 @@ class Signup extends Component {
       errors.usernameError = "Username needs to be atleast 5 characters long";
     }
 
-    if (this.state.username.length == 0) {
+    if (this.state.username.length === 0) {
       isError = true;
       errors.usernameError = "UserName is required";
     }
-    if (this.state.password.length == 0) {
+    if (this.state.password.length === 0) {
       isError = true;
       errors.passwordError = "Password is required";
     }
-    if (this.state.confirmPassword.length == 0) {
+    if (this.state.confirmPassword.length === 0) {
       isError = true;
       errors.confirmPasswordError = "Confirm Password is required";
     }

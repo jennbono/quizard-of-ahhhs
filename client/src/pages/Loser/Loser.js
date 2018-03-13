@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactHowler from 'react-howler';
 import Navbar from "../../components/Nav";
 import { Col, Container, Row } from "../../components/Grid";
-import { Card, CardBody, CardHeader } from "../../components/Card";
+import { Card, CardBody} from "../../components/Card";
 import { Redirect } from 'react-router-dom';
 
 
