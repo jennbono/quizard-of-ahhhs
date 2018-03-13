@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ReactHowler from 'react-howler';
+import ReactPlayer from 'react-player';
 import Navbar from "../../components/Nav";
 import { Col, Container, Row } from "../../components/Grid";
 import { Card, CardBody, CardHeader } from "../../components/Card";
@@ -15,10 +15,7 @@ class Loser extends Component {
   render() {
     return (
       <div>
-        <ReactHowler
-          src='audio/cackle3.mp3'
-          playing={true}
-        />
+        <ReactPlayer url='audio/cackle3.mp3' playing />
         <Navbar _logout={this._logout} loggedIn={this.state.loggedIn} />
         <Container fluid>
           <Row>
