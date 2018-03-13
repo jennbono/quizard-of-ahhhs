@@ -6,8 +6,11 @@
 
 body {
   background-image: url("/img/bg.jpg");
-  background-position: top;
-  background-size: 100% auto; }
+  min-height: 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -moz-background-size: cover; }
 
 button.btn-test,
 .btn-test:hover,
@@ -71,8 +74,9 @@ div.card-header.winner {
   background-color: #009874;
   color: white; }
 
-.winner-logo {
-  margin-bottom: 15px; }
+.mx-auto.d-block.winner-logo {
+  margin-bottom: 15px;
+  margin-top: 10px; }
 
 .google-button {
   margin-top: 25px; }
