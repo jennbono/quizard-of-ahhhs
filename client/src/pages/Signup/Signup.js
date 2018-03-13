@@ -119,9 +119,7 @@ class Signup extends Component {
                   inputStyle={styles.inputStyle}
                   floatingLabelText="Styled Floating Label Text"
                   floatingLabelStyle={styles.floatingLabelStyle}
-                  hintText="Custom Underline Color"
                   underlineStyle={styles.underlineStyle}
-                  hintText="Custom Underline Focus Color"
                   underlineFocusStyle={styles.underlineStyle}
                   floatingLabelText="Styled Floating Label Text"
                   floatingLabelStyle={styles.floatingLabelStyle}
@@ -137,9 +135,7 @@ class Signup extends Component {
                   inputStyle={styles.inputStyle}
                   floatingLabelText="Styled Floating Label Text"
                   floatingLabelStyle={styles.floatingLabelStyle}
-                  hintText="Custom Underline Color"
                   underlineStyle={styles.underlineStyle}
-                  hintText="Custom Underline Focus Color"
                   underlineFocusStyle={styles.underlineStyle}
                   floatingLabelText="Styled Floating Label Text"
                   floatingLabelStyle={styles.floatingLabelStyle}
@@ -155,9 +151,7 @@ class Signup extends Component {
                   inputStyle={styles.inputStyle}
                   floatingLabelText="Styled Floating Label Text"
                   floatingLabelStyle={styles.floatingLabelStyle}
-                  hintText="Custom Underline Color"
                   underlineStyle={styles.underlineStyle}
-                  hintText="Custom Underline Focus Color"
                   underlineFocusStyle={styles.underlineStyle}
                   floatingLabelText="Styled Floating Label Text"
                   floatingLabelStyle={styles.floatingLabelStyle}
