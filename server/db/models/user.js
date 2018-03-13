@@ -14,7 +14,9 @@ const userSchema = new Schema({
 	google: {
 		googleId: { type: String, required: false }
 	},
-	highscore: {type: Number, default: 0 }
+	highscore: {type: Number, default: 0 },
+	email: {type: String, unique: false, required: false},
+	token: {type: String, unique: false, required: false}
 	// local: {
 	// 	email: { type: String, unique: true },
 	// 	password: { type: String }
