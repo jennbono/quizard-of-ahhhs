@@ -7,7 +7,22 @@ import axios from "axios";
 import TextField from "material-ui/TextField";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {GoogleLogin} from 'react-google-login';
+import { grey50 } from 'material-ui/styles/colors';
 
+const styles = {
+  floatingLabelStyle: {
+    color: grey50,
+  },
+  underlineStyle: {
+    borderColor: grey50,
+  },
+  floatingLabelTextStyle: {
+    color: grey50,
+  },
+  inputStyle: {
+    color: grey50,
+  }
+};
 class LogIn extends Component {
   constructor() {
     super()
@@ -189,6 +204,14 @@ class LogIn extends Component {
                     <form>
                       {/* <Label htmlFor="username">Username: </Label> */}
                       <TextField
+                        inputStyle={styles.inputStyle}
+                        floatingLabelText="Styled Floating Label Text"
+                        floatingLabelStyle={styles.floatingLabelStyle}
+                        underlineStyle={styles.underlineStyle}
+                        underlineFocusStyle={styles.underlineStyle}
+                        floatingLabelText="Styled Floating Label Text"
+                        floatingLabelStyle={styles.floatingLabelStyle}
+                        floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
                         type="text"
                         name="username"
                         floatingLabelText="User Name"
@@ -198,6 +221,14 @@ class LogIn extends Component {
                       /><br />
                       {/* <Label htmlFor="password">Password: </Label> */}
                       <TextField
+                        inputStyle={styles.inputStyle}
+                        floatingLabelText="Styled Floating Label Text"
+                        floatingLabelStyle={styles.floatingLabelStyle}
+                        underlineStyle={styles.underlineStyle}
+                        underlineFocusStyle={styles.underlineStyle}
+                        floatingLabelText="Styled Floating Label Text"
+                        floatingLabelStyle={styles.floatingLabelStyle}
+                        floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
                         type="password"
                         name="password"
                         floatingLabelText="Password"
