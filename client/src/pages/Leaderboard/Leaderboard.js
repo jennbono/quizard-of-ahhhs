@@ -8,7 +8,6 @@ import { Card, CardBody, CardHeader } from "../../components/Card";
 //import API from "../../../server/auth";
 
 
-
 class Leaderboard extends Component {
   constructor() {
     super();
@@ -25,9 +24,18 @@ class Leaderboard extends Component {
       })
     })
   }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.setState({
+        redirectTo: '/question'
+      })    
+  }
+
   render() {
-
-
+    if (this.state.redirectTo) {
+      return <Redirect to={{ pathname: this.state.redirectTo }} />
+    }
 
     let result = this.state.data.map(score => ({ value: score.name, text: score.highscore }));
     console.log(result)
@@ -47,6 +55,7 @@ class Leaderboard extends Component {
                   {resultScores = result.map(topScores =>
                     <h5>{topScores.value}  {topScores.text} </h5>
                   )}
+                  <button className="btn-test text-center" onClick={this.handleSubmit}>Play Game</button>
                 </CardBody>
               </Card>
             </Col>
