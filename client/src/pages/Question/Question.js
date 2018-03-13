@@ -13,6 +13,7 @@ class Question extends Component {
     super(props);
     this.state = {
       question: [],
+      questionArr: [],
       timer: 25,
       answers: [],
       answerClicked: null,
@@ -53,23 +54,29 @@ class Question extends Component {
 
   showQuestion() {
     let questionNum = this.state.questionNum;
-    if (questionNum > 14) {
+    if (questionNum === 0) {
+      API.getQuestions()
+      .then(res => {
+        this.setState({ questionArr: res.data.results, questionNum: questionNum+1, questionOn: true, timer: 25 });
+        console.log(res.data.results);
+        this.makeAnswerArray();
+    })
+      .catch(err => console.log(err));
+    }
+    else if (questionNum > 14) {
       this.endRound();
     }
     else {
-      API.getQuestions()
-      .then(res => {
-        this.setState({ question: res.data.results[0], questionNum: questionNum+1, questionOn: true, timer: 25 });
-        this.makeAnswerArray();
-      })
-      .catch(err => console.log(err));
+      this.setState({ questionNum: questionNum+1, questionOn: true, timer: 25 });
+      this.makeAnswerArray();
     }
   }
 
   makeAnswerArray() {
     const temp = [];
-    const questObj = this.state.question;
-    this.setState({ correctAnswerIndex: Math.floor(Math.random() * 4)});
+    const tempNum = this.state.questionNum-1;
+    const questObj = this.state.questionArr[tempNum];
+    this.setState({ correctAnswerIndex: Math.floor(Math.random() * 4), question: this.state.questionArr[tempNum]});
     switch (this.state.correctAnswerIndex) {
       case 0:
         temp.push(questObj.correct_answer, questObj.incorrect_answers[0], questObj.incorrect_answers[1], questObj.incorrect_answers[2]);
