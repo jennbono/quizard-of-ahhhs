@@ -112,7 +112,7 @@ class Signup extends Component {
         <div>
           <Navbar />
           <div className="text-center">
-            <img src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
+            <img className="logo" src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
             <form>
               <div className="SignupForm">
                 <TextField 
