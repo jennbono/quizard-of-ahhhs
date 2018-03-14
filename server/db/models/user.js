@@ -15,8 +15,9 @@ const userSchema = new Schema({
 		googleId: { type: String, required: false }
 	},
 	highscore: {type: Number, default: 0 },
+	email: {type: String, unique: false, required: false},
+	token: {type: String, unique: false, required: false},
 	date: { type: Date, default: Date.now }
-
 })
 
 // Define schema methods

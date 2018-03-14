@@ -18,7 +18,7 @@ class Home extends Component {
         <Container fluid>
           <Row>
             <Col size="md-6">
-              <img className="mx-auto d-block" src="img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="250" />
+              <img className="mx-auto d-block logo" src="img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="250" />
               <Card>
                 <CardHeader className="default"><h1 className="text-center">Rules of the Game</h1></CardHeader>
                 <CardBody>

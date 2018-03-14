@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactPlayer from 'react-player';
 import Navbar from "../../components/Nav";
 import { Col, Container, Row } from "../../components/Grid";
-import { Card, CardBody} from "../../components/Card";
+import { Card, CardBody } from "../../components/Card";
 import { Redirect } from 'react-router-dom';
 
 
@@ -14,8 +14,8 @@ class Loser extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.setState({
-        redirectTo: '/question'
-      })    
+      redirectTo: '/question'
+    })
   }
 
   render() {
@@ -28,7 +28,9 @@ class Loser extends Component {
         <Container fluid>
           <Row>
             <Col size="md-6">
-              <img className="mx-auto d-block logo" src="img/lose_logo.png" alt="Loser Logo" height="250" />
+              <div className="text-center">
+                <img className="logo" src="img/lose_logo.png" alt="Loser Logo" height="200" />
+              </div>
               <Card>
                 <CardBody>
                   <h3 className="text-center">The Wicked Witch of the West has summoned her monkeys to fly you away from the Emerald Quizity!  Try again next time! </h3>
