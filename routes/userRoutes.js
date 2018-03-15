@@ -1,6 +1,6 @@
 var router = require("express").Router();
-var Users = require ("../server/db/models/user");;
-var axios = require ("axios")
+var Users = require ("../server/db/models/user");
+var axios = require ("axios");
 
 router.get("/api/users", (req, res) => {
     Users.find(req.query).then(function (err, data){
@@ -8,17 +8,6 @@ router.get("/api/users", (req, res) => {
     }
 );
 
-// router.get('/leaderboard', (req, res) =>{
-//   Users.find({}).sort({highscore: -1}).limit(5).then(function (err, data) {
-//     res.json(data);
-//     console.log(data);
-//   })
-// })
-// ProjectModel.find({projectName: 'name'}).sort({viewCount: -1}).limit(5).exec( 
-//   function(err, projects) {
-//       ...
-//   }
-// );
 
 router.post("/api/users", (req, res) => {
     Users.create(req.body).then(function (err, data) {
@@ -45,14 +34,33 @@ router.post('/api/users/highscore/:id', (req, res) => {
       }
     })
   });
-  // router.get('/leaderboard', (req, res) =>{
-  //   console.log("another leader");
-  //   Users.find({}).sort({highscore: -1}).limit(5).then(function (err, data) {
-  //     res.json(data);
-  //     console.log(data);
-  //     console.log("inside leaderboard");
+
+
+
+  // router.put('/endGame/:username/:score', (req, res) => {
+
+  //   console.log("inRoutes");
+  //   Users.update({
+  //     "username": req.params.username},
+  //     {$set: {
+  //     "currentScore": req.params.score
+  //   }
+  // })
+  //   .then(() => {
+  //     Users.findOne({
+  //       "username": req.params.username}
+       
+  //     ).then(User => {
+  //       console.log(User);
+  //       if (User.currentScore > User.highscore) {
+  //         User.update({
+  //           $set: {
+  //             "highscore": req.params.score
+  //           }
+  //         })
+  //       }
+  //     })
   //   })
-  //   })
-  
+  // })
 
 module.exports = router;
