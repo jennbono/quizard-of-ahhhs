@@ -4,6 +4,7 @@ import { Col, Container, Row } from "../../components/Grid";
 import { Card, CardBody, CardHeader } from "../../components/Card";
 import API from "../../utils/api";
 import axios from "axios";
+import { Redirect } from 'react-router-dom';
 
 // fixes the appearance of quotation marks in questions
 const Entities = require('html-entities').XmlEntities;
@@ -30,6 +31,7 @@ class Question extends Component {
       totalCorrect: 0,
       totalWrong: 0,
       totalTimedOut: 0,
+      redirectTo: null,
       questionOn: true //true to display question, false to display answer
     };
     this.showQuestion();
@@ -123,23 +125,41 @@ class Question extends Component {
        console.log("pushFinal");
        axios.put(`/auth/endGame/${this.props.user.local.username}/${this.state.totalCorrect}`)
        .then(response => {
+         console.log(response);
          console.log(this.state.currentScore);
-   
-       }) 
-   
-      //determine who had highest score, declare winner
+       })
     }
-  
+  showWinOrLose(){
+    //let us change the condition in if, once we are working with 15 questions at a time
+     if(this.state.totalCorrect <= 0){
+           this.setState({
+             redirectTo: '/loser'
+           })
+
+      }
+      if(this.state.totalCorrect > 0){
+          this.setState({
+            redirectTo: '/winner'
+          })
+
+      }
+    
+  }
  
   endRound() {
     console.log(this);
     clearInterval(this.timerID);
     this.pushFinalScoretoDB();
+    console.log("end of the round");
+    this.showWinOrLose();
    
     // this is the end of the game...add calls to end of game stuff
   }
 
   render() {
+    if (this.state.redirectTo) {
+      return <Redirect to={{ pathname: this.state.redirectTo }} />
+    }
     return (
       <div className="background">
         <Navbar  _logout={this._logout} loggedIn={this.state.loggedIn}/>

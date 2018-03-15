@@ -113,6 +113,7 @@ router.get('/leaderboard', (req, res) =>{
 		  {$set: {
 		  "currentScore": req.params.score
 		}
+		
 	  })
 		.then(() => {
 		  User.findOne({
@@ -120,6 +121,7 @@ router.get('/leaderboard', (req, res) =>{
 		   
 		  ).then(user => {
 			console.log(user);
+
 			if (user.currentScore > user.highscore) {
 			  user.update({
 				$set: {
