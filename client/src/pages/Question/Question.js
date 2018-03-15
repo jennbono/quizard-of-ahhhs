@@ -17,6 +17,7 @@ class Question extends Component {
       timer: 15,
       answers: [],
       answerClicked: null,
+      answerCorrect: null,
       correctAnswerIndex: null,
       questionNum: 0,
       totalAnswered: 0,
@@ -102,10 +103,10 @@ class Question extends Component {
     let totalCorrect = this.state.totalCorrect;
     let totalWrong = this.state.totalWrong;
       if (index === correctAnswer) {
-        this.setState({ totalAnswered: totalAnswered+1, totalCorrect: totalCorrect+1, questionOn: false});
+        this.setState({ answerCorrect: true, totalAnswered: totalAnswered+1, totalCorrect: totalCorrect+1, questionOn: false});
       }
       else if (index !== correctAnswer) {
-        this.setState({ totalAnswered: totalAnswered+1, totalWrong: totalWrong+1, questionOn: false});
+        this.setState({ answerCorrect: false, totalAnswered: totalAnswered+1, totalWrong: totalWrong+1, questionOn: false});
       }
   }
 
@@ -154,6 +155,7 @@ class Question extends Component {
                   <CardBody>
                     <h6 className="text-center">Time Until Next Question: {this.state.timer}</h6>
                     <h4 className="text-center">{entities.decode(this.state.question.question)}</h4>
+                    <h6 className="text-center">{this.state.answerCorrect ? <strong className="correct">CORRECT!!!</strong>: <strong className="wrong">WRONG!!!</strong>}</h6>
                     <h6 className="answer text-center">The correct answer is: {entities.decode(this.state.answers[this.state.correctAnswerIndex])}</h6>
                     <p className="text-center"><strong>Total Answered:</strong> {this.state.totalAnswered} out of {this.state.questionNum}</p>
                     <p className="text-center"><strong>Total Correct:</strong> {this.state.totalCorrect}</p>
