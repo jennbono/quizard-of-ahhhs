@@ -105,4 +105,31 @@ router.get('/leaderboard', (req, res) =>{
 	})
   })
 
+  router.put('/endGame/:username/:score', (req, res) => {
+		console.log("inRoutes");
+		console.log(req.params);
+		User.update({
+		  "local.username": req.params.username},
+		  {$set: {
+		  "currentScore": req.params.score
+		}
+	  })
+		.then(() => {
+		  User.findOne({
+			"local.username": req.params.username}
+		   
+		  ).then(user => {
+			console.log(user);
+			if (user.currentScore > user.highscore) {
+			  user.update({
+				$set: {
+				  "highscore": req.params.score
+				}
+			  })
+			}
+		  })
+		})
+	  })
+
+
 module.exports = router
