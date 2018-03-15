@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactPlayer from 'react-player';
 import Navbar from "../../components/Nav";
 import { Col, Container, Row } from "../../components/Grid";
 import { Card, CardBody, CardHeader } from "../../components/Card";
@@ -40,6 +41,12 @@ class Winner extends Component {
               </Card>
             </Col>
           </Row>
+          <ReactPlayer
+            url='audio/no_place_like_home.wav'
+            playing
+            width='0%'
+            height='0%'
+          />
         </Container>
       </div>
     )
