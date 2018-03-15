@@ -119,23 +119,18 @@ class Question extends Component {
  
 
   pushFinalScoretoDB = function(data) {
- 
-    console.log("pushFinal");
-    axios.put(`/auth/endGame/${this.props.user.local.username}/${this.state.totalCorrect}`)
-    .then(response => {
-      console.log(this.state.currentScore);
-
-    }) 
-
-      
     
-      
+       console.log("pushFinal");
+       axios.put(`/auth/endGame/${this.props.user.local.username}/${this.state.totalCorrect}`)
+       .then(response => {
+         console.log(this.state.currentScore);
+   
+       }) 
+   
       //determine who had highest score, declare winner
     }
   
-  
-
-
+ 
   endRound() {
     console.log(this);
     clearInterval(this.timerID);
@@ -143,8 +138,6 @@ class Question extends Component {
    
     // this is the end of the game...add calls to end of game stuff
   }
-
-
 
   render() {
     return (
