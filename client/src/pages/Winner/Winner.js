@@ -14,8 +14,8 @@ class Winner extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.setState({
-        redirectTo: '/question'
-      })    
+      redirectTo: '/question'
+    })
   }
 
   render() {
@@ -33,16 +33,18 @@ class Winner extends Component {
                 <CardHeader className="winner"><h1 className="text-center">Congratulations!</h1></CardHeader>
                 <CardBody>
                   <h3 className="text-center">You have won the game.</h3>
-                  <button className="btn-test text-center" onClick={this.handleSubmit}>Start Again</button>
+                  <div className="text-center">
+                    <button className="btn-test text-center" onClick={this.handleSubmit}>Start Again</button>
+                  </div>
                 </CardBody>
               </Card>
             </Col>
           </Row>
-        </Container> 
+        </Container>
       </div>
     )
   }
 }
-    
-    
+
+
 export default Winner;

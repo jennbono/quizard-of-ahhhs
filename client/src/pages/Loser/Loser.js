@@ -34,7 +34,9 @@ class Loser extends Component {
               <Card>
                 <CardBody>
                   <h3 className="text-center">The Wicked Witch of the West has summoned her monkeys to fly you away from the Emerald Quizity!  Try again next time! </h3>
-                  <button className="btn-test text-center" onClick={this.handleSubmit}>Start Again</button>
+                  <div className="text-center">
+                    <button className="btn-test text-center" onClick={this.handleSubmit}>Start Again</button>
+                  </div>
                 </CardBody>
               </Card>
               {/* Need to insert button to enter the questions page to play again ONLY IF LOGGED IN */}

@@ -28,8 +28,8 @@ class Leaderboard extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.setState({
-        redirectTo: '/question'
-      })    
+      redirectTo: '/question'
+    })
   }
 
   render() {
@@ -54,7 +54,9 @@ class Leaderboard extends Component {
                   {resultScores = result.map(topScores =>
                     <h5>{topScores.value}  {topScores.text} </h5>
                   )}
-                  <button className="btn-test text-center" onClick={this.handleSubmit}>Play Game</button>
+                  <div className="text-center">
+                    <button className="btn-test text-center" onClick={this.handleSubmit}>Play Game</button>
+                  </div>
                 </CardBody>
               </Card>
             </Col>
