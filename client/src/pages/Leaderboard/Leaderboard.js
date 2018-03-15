@@ -37,7 +37,8 @@ class Leaderboard extends Component {
       return <Redirect to={{ pathname: this.state.redirectTo }} />
     }
 
-    let result = this.state.data.map(score => ({ value: score.name, text: score.highscore }));
+    let result = this.state.data.map(score => ({ value: score.local.username, text: score.highscore }));
+    console.log(this.data);
     console.log(result)
     var resultScores
     return (

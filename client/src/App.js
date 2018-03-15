@@ -88,7 +88,8 @@ class App extends Component {
             <Route exact path="/winner" component={Winner} user={this.state.user}/>
             <Route exact path="/loser" component={Loser} user={this.state.user}/>
             <Route exact path="/start" component={Start} user={this.state.user}/>
-            <Route exact path="/leaderboard" component={Leaderboard} user={this.state.user}/>
+            <Route exact path="/leaderboard" component={() => <Leaderboard user={this.state.user}/>} />
+            {/* <Route exact path="/leaderboard" component={Leaderboard} user={this.state.user}/> */}
             {/*  ROUTES */}
             {/* <Route exact path="/" component={Status} /> */}
             {/* <Route exact path="/" render={() => <Status user={this.state.user} />} /> */}

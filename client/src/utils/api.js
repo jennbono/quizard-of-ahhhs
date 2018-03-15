@@ -7,14 +7,14 @@ export default {
     return axios.get(queryURL);
   },
 
-  PORT: process.env.PORT || 3001,
+  // PORT: process.env.PORT || 3001,
   
 
-  getUsers: function() {
+  // getUsers: function() {
 
-    return axios.get(`https://localhost:${this.PORT}/api/users` );
+  //   return axios.get(`https://localhost:${this.PORT}/api/users` );
 
-  }
+  // }
 
 
 
