@@ -109,6 +109,12 @@ class Navbar extends Component {
                             Sign Up
                         </Link>
                     </li>
+                    {/* <li className="nav-item">
+                        <Link to="/leaderboard" className="nav-link">
+                            Leaderboard
+                        </Link>
+                    </li> */}
+
             </ul>
         </div>
             {/* <button type="button" className="btn btn-test">
