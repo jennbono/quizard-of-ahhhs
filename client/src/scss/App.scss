@@ -67,7 +67,6 @@ p {
   color: white;
 }
 
-
 // Question Page
 button.btn.answer-btn {
   background-color: $rubyRed;
@@ -92,19 +91,15 @@ div.card-header.winner {
   color: white;
 }
 
-.mx-auto.d-block.winner-logo {
+.mx-auto.d-block.winner-logo.img-fluid {
   margin-bottom: 15px;
   margin-top: 10px;
 }
 
-.google-button {
-  margin-top: 25px;
-}
-
-.logo {
+.logo.img-fluid {
   margin-top: 10px;
 }
 
-.mx-auto.d-block.logo {
+.mx-auto.d-block.logo.img-fluid {
   margin-top: 10px;
 } 
