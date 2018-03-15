@@ -119,23 +119,18 @@ class Question extends Component {
  
 
   pushFinalScoretoDB = function(data) {
- 
-    console.log("pushFinal");
-    axios.put(`/auth/endGame/${this.props.user.local.username}/${this.state.totalCorrect}`)
-    .then(response => {
-      console.log(this.state.currentScore);
-
-    }) 
-
-      
     
-      
+       console.log("pushFinal");
+       axios.put(`/auth/endGame/${this.props.user.local.username}/${this.state.totalCorrect}`)
+       .then(response => {
+         console.log(this.state.currentScore);
+   
+       }) 
+   
       //determine who had highest score, declare winner
     }
   
-  
-
-
+ 
   endRound() {
     console.log(this);
     clearInterval(this.timerID);
@@ -143,8 +138,6 @@ class Question extends Component {
    
     // this is the end of the game...add calls to end of game stuff
   }
-
-
 
   render() {
     return (
@@ -155,7 +148,7 @@ class Question extends Component {
             {this.state.questionOn ? (
               <Col size="md-6">
                 {/* question component */}
-                <img className="mx-auto d-block logo img-fluid" src="img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="150" />
+                <img className="mx-auto d-block logo" src="img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="150" />
 
                 <Card>
                   <CardHeader className="default"><h1 className="text-center">Question {this.state.questionNum}</h1></CardHeader>

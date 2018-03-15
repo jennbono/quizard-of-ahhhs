@@ -36,31 +36,4 @@ router.post('/api/users/highscore/:id', (req, res) => {
   });
 
 
-
-  // router.put('/endGame/:username/:score', (req, res) => {
-
-  //   console.log("inRoutes");
-  //   Users.update({
-  //     "username": req.params.username},
-  //     {$set: {
-  //     "currentScore": req.params.score
-  //   }
-  // })
-  //   .then(() => {
-  //     Users.findOne({
-  //       "username": req.params.username}
-       
-  //     ).then(User => {
-  //       console.log(User);
-  //       if (User.currentScore > User.highscore) {
-  //         User.update({
-  //           $set: {
-  //             "highscore": req.params.score
-  //           }
-  //         })
-  //       }
-  //     })
-  //   })
-  // })
-
 module.exports = router;
