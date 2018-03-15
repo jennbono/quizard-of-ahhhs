@@ -14,8 +14,8 @@ class Winner extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.setState({
-        redirectTo: '/question'
-      })    
+      redirectTo: '/question'
+    })
   }
 
   render() {
@@ -28,21 +28,23 @@ class Winner extends Component {
         <Container fluid>
           <Row>
             <Col size="md-6">
-              <img className="mx-auto d-block winner-logo" src="img/Emerald_Quizity.png" alt="Emerald Quizity Logo" height="250" />
+              <img className="mx-auto d-block winner-logo img-fluid" src="img/Emerald_Quizity.png" alt="Emerald Quizity Logo" height="250" />
               <Card>
                 <CardHeader className="winner"><h1 className="text-center">Congratulations!</h1></CardHeader>
                 <CardBody>
                   <h3 className="text-center">You have won the game.</h3>
-                  <button className="btn-test text-center" onClick={this.handleSubmit}>Start Again</button>
+                  <div className="text-center">
+                    <button className="btn-test text-center" onClick={this.handleSubmit}>Start Again</button>
+                  </div>
                 </CardBody>
               </Card>
             </Col>
           </Row>
-        </Container> 
+        </Container>
       </div>
     )
   }
 }
-    
-    
+
+
 export default Winner;

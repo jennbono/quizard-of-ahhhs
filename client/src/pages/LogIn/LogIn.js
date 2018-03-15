@@ -200,7 +200,7 @@ class LogIn extends Component {
               <Row>
                 <Col size="md-6">
                   <div className="text-center" >
-                    <img className="logo" src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
+                    <img className="logo img-fluid" src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
                     <form>
                       {/* <Label htmlFor="username">Username: </Label> */}
                       <TextField
@@ -238,7 +238,7 @@ class LogIn extends Component {
                       /><br />
                       <button className="btn-test" onClick={this.handleSubmit}>Login</button>
                     </form><br />
-                    <GoogleLogin
+                    <GoogleLogin className="btn-test"
                       clientId="4863906804-hbsq07mcg6p1hcc1hd594s4unpgo8up3.apps.googleusercontent.com"
                       buttonText="Google Login"
                       onSuccess={this.responseGoogle}

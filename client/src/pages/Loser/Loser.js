@@ -29,12 +29,14 @@ class Loser extends Component {
           <Row>
             <Col size="md-6">
               <div className="text-center">
-                <img className="logo" src="img/lose_logo.png" alt="Loser Logo" height="200" />
+                <img className="logo img-fluid" src="img/lose_logo.png" alt="Loser Logo" height="200" />
               </div>
               <Card>
                 <CardBody>
                   <h3 className="text-center">The Wicked Witch of the West has summoned her monkeys to fly you away from the Emerald Quizity!  Try again next time! </h3>
-                  <button className="btn-test text-center" onClick={this.handleSubmit}>Start Again</button>
+                  <div className="text-center">
+                    <button className="btn-test text-center" onClick={this.handleSubmit}>Start Again</button>
+                  </div>
                 </CardBody>
               </Card>
               {/* Need to insert button to enter the questions page to play again ONLY IF LOGGED IN */}

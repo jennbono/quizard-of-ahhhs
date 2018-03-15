@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom';
+import { Col, Container, Row } from "../../components/Grid";
 import TextField from "material-ui/TextField";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Navbar from "../../components/Nav";
@@ -111,63 +112,68 @@ class Signup extends Component {
       <MuiThemeProvider>
         <div>
           <Navbar />
-          <div className="text-center">
-            <img className="logo" src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
-            <form>
-              <div className="SignupForm">
-                <TextField 
-                  inputStyle={styles.inputStyle}
-                  floatingLabelText="Styled Floating Label Text"
-                  floatingLabelStyle={styles.floatingLabelStyle}
-                  underlineStyle={styles.underlineStyle}
-                  underlineFocusStyle={styles.underlineStyle}
-                  floatingLabelText="Styled Floating Label Text"
-                  floatingLabelStyle={styles.floatingLabelStyle}
-                  floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
-                  type="text"
-                  name="username"
-                  floatingLabelText="User Name"
-                  value={this.state.username}
-                  errorText={this.state.usernameError}
-                  onChange={this.handleChange}
-                /><br />
-                <TextField 
-                  inputStyle={styles.inputStyle}
-                  floatingLabelText="Styled Floating Label Text"
-                  floatingLabelStyle={styles.floatingLabelStyle}
-                  underlineStyle={styles.underlineStyle}
-                  underlineFocusStyle={styles.underlineStyle}
-                  floatingLabelText="Styled Floating Label Text"
-                  floatingLabelStyle={styles.floatingLabelStyle}
-                  floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
-                  type="password"
-                  name="password"
-                  floatingLabelText="Password"
-                  value={this.state.password}
-                  errorText={this.state.passwordError}
-                  onChange={this.handleChange}
-                /><br />
-                <TextField 
-                  inputStyle={styles.inputStyle}
-                  floatingLabelText="Styled Floating Label Text"
-                  floatingLabelStyle={styles.floatingLabelStyle}
-                  underlineStyle={styles.underlineStyle}
-                  underlineFocusStyle={styles.underlineStyle}
-                  floatingLabelText="Styled Floating Label Text"
-                  floatingLabelStyle={styles.floatingLabelStyle}
-                  floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
-                  type="password"
-                  name="confirmPassword"
-                  floatingLabelText="Confirm Password"
-                  value={this.state.confirmPassword}
-                  errorText={this.state.confirmPasswordError}
-                  onChange={this.handleChange}
-                /><br />
-                <button className="btn-test" onClick={this.handleSubmit}>Sign Up</button>
-              </div>
-            </form>
-          </div>
-
+          <Container>
+            <Row>
+              <Col size="md-6">
+                <div className="text-center">
+                  <img className="logo img-fluid" src="../img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
+                  <form>
+                    <div className="SignupForm">
+                      <TextField
+                        inputStyle={styles.inputStyle}
+                        floatingLabelText="Styled Floating Label Text"
+                        floatingLabelStyle={styles.floatingLabelStyle}
+                        underlineStyle={styles.underlineStyle}
+                        underlineFocusStyle={styles.underlineStyle}
+                        floatingLabelText="Styled Floating Label Text"
+                        floatingLabelStyle={styles.floatingLabelStyle}
+                        floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+                        type="text"
+                        name="username"
+                        floatingLabelText="User Name"
+                        value={this.state.username}
+                        errorText={this.state.usernameError}
+                        onChange={this.handleChange}
+                      /><br />
+                      <TextField
+                        inputStyle={styles.inputStyle}
+                        floatingLabelText="Styled Floating Label Text"
+                        floatingLabelStyle={styles.floatingLabelStyle}
+                        underlineStyle={styles.underlineStyle}
+                        underlineFocusStyle={styles.underlineStyle}
+                        floatingLabelText="Styled Floating Label Text"
+                        floatingLabelStyle={styles.floatingLabelStyle}
+                        floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+                        type="password"
+                        name="password"
+                        floatingLabelText="Password"
+                        value={this.state.password}
+                        errorText={this.state.passwordError}
+                        onChange={this.handleChange}
+                      /><br />
+                      <TextField
+                        inputStyle={styles.inputStyle}
+                        floatingLabelText="Styled Floating Label Text"
+                        floatingLabelStyle={styles.floatingLabelStyle}
+                        underlineStyle={styles.underlineStyle}
+                        underlineFocusStyle={styles.underlineStyle}
+                        floatingLabelText="Styled Floating Label Text"
+                        floatingLabelStyle={styles.floatingLabelStyle}
+                        floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+                        type="password"
+                        name="confirmPassword"
+                        floatingLabelText="Confirm Password"
+                        value={this.state.confirmPassword}
+                        errorText={this.state.confirmPasswordError}
+                        onChange={this.handleChange}
+                      /><br />
+                      <button className="btn-test" onClick={this.handleSubmit}>Sign Up</button>
+                    </div>
+                  </form>
+                </div>
+              </Col>
+            </Row>
+          </Container>
         </div>
       </MuiThemeProvider>
     )
