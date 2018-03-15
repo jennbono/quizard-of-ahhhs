@@ -83,3 +83,14 @@ div.card-header.winner {
 
 .mx-auto.d-block.logo.img-fluid {
   margin-top: 10px; }
+
+.mx-auto.d-block.logo {
+  margin-top: 10px; }
+
+.correct {
+  color: #009874;
+  text-shadow: 2px 2px 4px #000000; }
+
+.wrong {
+  color: #b31e3f;
+  text-shadow: 2px 2px 4px #000000; }
