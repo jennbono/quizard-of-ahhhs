@@ -83,7 +83,8 @@ class App extends Component {
             <Route exact path="/" component={Home} user={this.state.user}/>
             <Route exact path="/home" component={Home} user={this.state.user} />
             <Route exact path="/login" component={LogIn} user={this.state.user}/>
-            <Route exact path="/question" component={Question} user={this.state.user}/>
+            {/* <Route exact path="/question" component={Question} user={this.state.user}/> */}
+            <Route exact path="/question" component={() => <Question user={this.state.user}/>} />
             <Route exact path="/winner" component={Winner} user={this.state.user}/>
             <Route exact path="/loser" component={Loser} user={this.state.user}/>
             <Route exact path="/start" component={Start} user={this.state.user}/>

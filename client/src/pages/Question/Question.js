@@ -3,14 +3,20 @@ import Navbar from "../../components/Nav";
 import { Col, Container, Row } from "../../components/Grid";
 import { Card, CardBody, CardHeader } from "../../components/Card";
 import API from "../../utils/api";
+import axios from "axios";
+
 // fixes the appearance of quotation marks in questions
 const Entities = require('html-entities').XmlEntities;
  
 const entities = new Entities();
 
+
 class Question extends Component {
+
   constructor(props) {
+    console.log(props);
     super(props);
+    console.log(this);
     this.state = {
       question: [],
       questionArr: [],
@@ -64,7 +70,7 @@ class Question extends Component {
     })
       .catch(err => console.log(err));
     }
-    else if (questionNum > 14) {
+    else if (questionNum > 1) {
       this.endRound();
     }
     else {
@@ -110,10 +116,35 @@ class Question extends Component {
       }
   }
 
+ 
+
+  pushFinalScoretoDB = function(data) {
+ 
+    console.log("pushFinal");
+    axios.put(`/auth/endGame/${this.props.user.local.username}/${this.state.totalCorrect}`)
+    .then(response => {
+      console.log(this.state.currentScore);
+
+    }) 
+
+      
+    
+      
+      //determine who had highest score, declare winner
+    }
+  
+  
+
+
   endRound() {
+    console.log(this);
     clearInterval(this.timerID);
+    this.pushFinalScoretoDB();
+   
     // this is the end of the game...add calls to end of game stuff
   }
+
+
 
   render() {
     return (

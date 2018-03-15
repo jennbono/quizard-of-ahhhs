@@ -15,10 +15,12 @@ const userSchema = new Schema({
 		googleId: { type: String, required: false }
 	},
 	highscore: {type: Number, default: 0 },
+	currentScore: Number,
 	email: {type: String, unique: false, required: false},
-	token: {type: String, unique: false, required: false},
-	date: { type: Date, default: Date.now }
-})
+	token: {type: String, unique: false, required: false}
+	
+}, {timestamps:true}
+)
 
 // Define schema methods
 userSchema.methods = {
