@@ -28,7 +28,7 @@ class Winner extends Component {
         <Container fluid>
           <Row>
             <Col size="md-6">
-              <img className="mx-auto d-block winner-logo" src="img/Emerald_Quizity.png" alt="Emerald Quizity Logo" height="250" />
+              <img className="mx-auto d-block winner-logo img-fluid" src="img/Emerald_Quizity.png" alt="Emerald Quizity Logo" height="250" />
               <Card>
                 <CardHeader className="winner"><h1 className="text-center">Congratulations!</h1></CardHeader>
                 <CardBody>

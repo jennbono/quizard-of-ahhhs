@@ -29,7 +29,7 @@ class Loser extends Component {
           <Row>
             <Col size="md-6">
               <div className="text-center">
-                <img className="logo" src="img/lose_logo.png" alt="Loser Logo" height="200" />
+                <img className="logo img-fluid" src="img/lose_logo.png" alt="Loser Logo" height="200" />
               </div>
               <Card>
                 <CardBody>
