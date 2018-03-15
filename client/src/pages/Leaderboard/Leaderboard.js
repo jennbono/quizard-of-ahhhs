@@ -46,7 +46,7 @@ class Leaderboard extends Component {
         <Container fluid>
           <Row>
             <Col size="md-6">
-              <img className="mx-auto d-block logo" src="img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
+              <img className="mx-auto d-block logo img-fluid" src="img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
               <Card>
                 <CardHeader><h1 className="text-center">Leaderboard</h1>
                 </CardHeader>
