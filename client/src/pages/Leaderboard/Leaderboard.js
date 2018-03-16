@@ -4,8 +4,6 @@ import axios from "axios";
 import Navbar from "../../components/Nav";
 import { Col, Container, Row } from "../../components/Grid";
 import { Card, CardBody, CardHeader } from "../../components/Card";
-//import Routes from "../../../routes/userRoutes";
-//import API from "../../../server/auth";
 
 
 class Leaderboard extends Component {

@@ -10,11 +10,7 @@ export default {
   // PORT: process.env.PORT || 3001,
   
 
-  // getUsers: function() {
 
-  //   return axios.get(`https://localhost:${this.PORT}/api/users` );
-
-  // }
 
 
 
