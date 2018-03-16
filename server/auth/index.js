@@ -95,7 +95,7 @@ router.post('/signup', (req, res) => {
 		})
 	})
 })
-
+//get all data from leaderboard, sort by highscore and return the top 10
 router.get('/leaderboard', (req, res) => {
 	console.log("another leader");
 	User.find({}).sort({ highscore: -1 }).limit(10).exec(function (err, data) {
@@ -104,7 +104,8 @@ router.get('/leaderboard', (req, res) => {
 		console.log("inside leaderboard");
 	})
 })
-
+//find by the username and update to the current score, then if the current score is higher 
+//than the high score, update the high score
 router.put('/endGame/:username/:score', (req, res) => {
 	console.log("inRoutes");
 	console.log(req.params);
