@@ -4,8 +4,6 @@ import axios from "axios";
 import Navbar from "../../components/Nav";
 import { Col, Container, Row } from "../../components/Grid";
 import { Card, CardBody, CardHeader } from "../../components/Card";
-//import Routes from "../../../routes/userRoutes";
-//import API from "../../../server/auth";
 
 
 class Leaderboard extends Component {
@@ -49,14 +47,14 @@ class Leaderboard extends Component {
             <Col size="md-6">
               <img className="mx-auto d-block logo img-fluid" src="img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
               <Card>
-                <CardHeader><h1 className="text-center">Leaderboard</h1>
+                <CardHeader><h1 className="text-center">Highest Score Leaderboard</h1>
                 </CardHeader>
                 <CardBody>
                   {resultScores = result.map(topScores =>
-                    <h5>{topScores.value}  {topScores.text} </h5>
+                    <h6>{topScores.value} - {topScores.text} </h6>
                   )}
                   <div className="text-center">
-                    <button className="btn-test text-center" onClick={this.handleSubmit}>Play Game</button>
+                    <button className="btn-test text-center" onClick={this.handleSubmit}>Play Again</button>
                   </div>
                 </CardBody>
               </Card>

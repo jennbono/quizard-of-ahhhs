@@ -15,7 +15,7 @@ class Winner extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.setState({
-      redirectTo: '/question'
+      redirectTo: '/leaderboard'
     })
   }
 
@@ -35,7 +35,7 @@ class Winner extends Component {
                 <CardBody>
                   <h3 className="text-center">You have won the game.</h3>
                   <div className="text-center">
-                    <button className="btn-test text-center" onClick={this.handleSubmit}>Start Again</button>
+                    <button className="btn-test text-center" onClick={this.handleSubmit}>Go to Leaderboard</button>
                   </div>
                 </CardBody>
               </Card>

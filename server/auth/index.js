@@ -25,7 +25,7 @@ router.get('/user', (req, res, next) => {
 
 router.post(
 	'/login',
-	function(req, res, next) {
+	function (req, res, next) {
 		console.log(req.body)
 		console.log('================')
 		next()
@@ -95,43 +95,52 @@ router.post('/signup', (req, res) => {
 		})
 	})
 })
-// User.find({},null, {sort: {highscore: -1}}).then(function (err, data)
-router.get('/leaderboard', (req, res) =>{
+
+router.get('/leaderboard', (req, res) => {
 	console.log("another leader");
-	User.find({}).sort({highscore: -1}).exec(function (err, data) {
-	  res.json(data);
-	  console.log(data);
-	  console.log("inside leaderboard");
+	User.find({}).sort({ highscore: -1 }).exec(function (err, data) {
+		res.json(data);
+		console.log(data);
+		console.log("inside leaderboard");
 	})
-  })
+})
 
-  router.put('/endGame/:username/:score', (req, res) => {
-		console.log("inRoutes");
-		console.log(req.params);
-		User.update({
-		  "local.username": req.params.username},
-		  {$set: {
-		  "currentScore": req.params.score
-		}
-		
-	  })
-		.then(() => {
-		  User.findOne({
-			"local.username": req.params.username}
-		   
-		  ).then(user => {
-			console.log(user);
-
-			if (user.currentScore > user.highscore) {
-			  user.update({
-				$set: {
-				  "highscore": req.params.score
-				}
-			  })
+router.put('/endGame/:username/:score', (req, res) => {
+	console.log("inRoutes");
+	console.log(req.params);
+	User.update({
+		"local.username": req.params.username
+	},
+		{
+			$set: {
+				"currentScore": req.params.score
 			}
-		  })
+
 		})
-	  })
+		.then(() => {
+			User.findOne({ "local.username": req.params.username }
+
+			).then(user => {
+				console.log("checking user");
+				console.log(user);
+				console.log("params check");
+				console.log(req.params.username);
+
+				if (user.currentScore > user.highscore) {
+					console.log("inside if");
+					User.findOneAndUpdate({ "local.username": req.params.username }, { $set: { "highscore": req.params.score } }, function (err, updated) {
+						if (err) {
+							console.log("inside err");
+							console.log(err);
+						}
+						if (updated) {
+							console.log("updated");
+						}
+					})
+				}
+			})
+		})
+})
 
 
 module.exports = router

@@ -14,7 +14,7 @@ class Loser extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.setState({
-      redirectTo: '/question'
+      redirectTo: '/leaderboard'
     })
   }
 
@@ -35,7 +35,7 @@ class Loser extends Component {
                 <CardBody>
                   <h3 className="text-center">The Wicked Witch of the West has summoned her monkeys to fly you away from the Emerald Quizity!  Try again next time! </h3>
                   <div className="text-center">
-                    <button className="btn-test text-center" onClick={this.handleSubmit}>Start Again</button>
+                    <button className="btn-test text-center" onClick={this.handleSubmit}>Go to Leaderboard</button>
                   </div>
                 </CardBody>
               </Card>

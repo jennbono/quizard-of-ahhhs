@@ -41,8 +41,7 @@ userSchema.pre('save', function(next) {
 		this.local.password = this.hashPassword(this.local.password)
 		next()
 	}
-	// this.password = this.hashPassword(this.password)
-	// next()
+
 })
 
 // Create reference to User & export
