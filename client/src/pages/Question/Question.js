@@ -120,8 +120,8 @@ class Question extends Component {
     console.log("pushFinal");
     axios.put(`/auth/endGame/${this.props.user.local.username}/${this.state.totalCorrect}`)
       .then(response => {
-        console.log(response);
-        console.log(this.state.currentScore);
+       // console.log(response);
+        //console.log(this.state.currentScore);
       })
   }
 
@@ -131,23 +131,23 @@ class Question extends Component {
       this.setState({
         redirectTo: '/loser'
       })
-      console.log(this.state.redirectTo);
+      //console.log(this.state.redirectTo);
 
     }
     if (this.state.totalCorrect >= 6) {
       this.setState({
         redirectTo: '/winner'
       })
-      console.log(this.state.redirectTo);
+     // console.log(this.state.redirectTo);
     }
   }
 
   endRound() {
     this.setState({ answerClicked: false, flag: false });
-    console.log(this);
+    //console.log(this);
     clearInterval(this.timerID);
     this.pushFinalScoretoDB();
-    console.log("end of the round");
+    //console.log("end of the round");
     this.showWinOrLose();
 
     // this is the end of the game...add calls to end of game stuff
@@ -157,13 +157,13 @@ class Question extends Component {
     // if (this.state.redirectTo) {
     //   return <Redirect to={{ pathname: this.state.redirectTo }} />
     // }
-    console.log("total corrects" + this.state.totalCorrect);
-    if (this.state.totalCorrect < 12 && this.state.flag === false) {
-      console.log("loser");
+    //console.log("total corrects" + this.state.totalCorrect);
+    if (this.state.totalCorrect < 6 && this.state.flag === false) {
+      //console.log("loser");
       return <Redirect to='/loser' />
     }
-    if (this.state.totalCorrect >= 12 && this.state.flag === false) {
-      console.log("winner");
+    if (this.state.totalCorrect >= 6 && this.state.flag === false) {
+      //console.log("winner");
       return <Redirect to='/winner' />
     }
     return (
