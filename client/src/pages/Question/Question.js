@@ -32,7 +32,8 @@ class Question extends Component {
       totalWrong: 0,
       totalTimedOut: 0,
       redirectTo: null,
-      questionOn: true //true to display question, false to display answer
+      questionOn: true, //true to display question, false to display answer
+      flag: true
     };
     this.showQuestion();
   }
@@ -72,7 +73,7 @@ class Question extends Component {
     })
       .catch(err => console.log(err));
     }
-    else if (questionNum > 1) {
+    else if (questionNum > 14) {
       this.endRound();
     }
     else {
@@ -131,14 +132,14 @@ class Question extends Component {
     }
   showWinOrLose(){
     //let us change the condition in if, once we are working with 15 questions at a time
-     if(this.state.totalCorrect <= 0 ){
+     if(this.state.totalCorrect < 12 ){
            this.setState({
              redirectTo: '/loser'
            })
            console.log(this.state.redirectTo);
 
       }
-      if(this.state.totalCorrect >= 1){
+      if(this.state.totalCorrect >= 12){
           this.setState({
             redirectTo: '/winner'
           })
@@ -148,6 +149,9 @@ class Question extends Component {
   }
  
   endRound() {
+    this.setState({
+      flag: false
+    })
     console.log(this);
     clearInterval(this.timerID);
     this.pushFinalScoretoDB();
@@ -162,13 +166,13 @@ class Question extends Component {
     //   return <Redirect to={{ pathname: this.state.redirectTo }} />
     // }
     console.log("total corrects"+this.state.totalCorrect);
-    if(this.state.totalCorrect <= 0 ){
+    if(this.state.totalCorrect < 12 && this.state.flag === false){
       console.log("losser");
-      <Redirect to = '/loser' />
+      return <Redirect to = '/loser' />
     }
-    if(this.state.totalCorrect >= 1){
+    if(this.state.totalCorrect >= 12 && this.state.flag === false){
       console.log("winner");
-      <Redirect to='/winner' />
+      return <Redirect to='/winner' />
     }
     return (
       <div className="background">
