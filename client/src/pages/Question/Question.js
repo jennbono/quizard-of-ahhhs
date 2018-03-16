@@ -72,7 +72,7 @@ class Question extends Component {
     })
       .catch(err => console.log(err));
     }
-    else if (questionNum > 1) {
+    else if (questionNum > 14) {
       this.endRound();
     }
     else {
@@ -131,13 +131,13 @@ class Question extends Component {
     }
   showWinOrLose(){
     //let us change the condition in if, once we are working with 15 questions at a time
-     if(this.state.totalCorrect <= 0){
+     if(this.state.totalCorrect < 12 ){
            this.setState({
              redirectTo: '/loser'
            })
 
       }
-      if(this.state.totalCorrect > 0){
+      if(this.state.totalCorrect >= 12){
           this.setState({
             redirectTo: '/winner'
           })
