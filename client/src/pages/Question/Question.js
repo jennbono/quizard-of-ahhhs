@@ -5,11 +5,7 @@ import { Card, CardBody, CardHeader } from "../../components/Card";
 import API from "../../utils/api";
 import axios from "axios";
 import { Redirect } from 'react-router-dom';
-
-// fixes the appearance of quotation marks in questions
-const Entities = require('html-entities').XmlEntities;
- 
-const entities = new Entities();
+import entities from "entities"; // fixes the appearance of quotation marks in questions
 
 
 class Question extends Component {
@@ -67,26 +63,26 @@ class Question extends Component {
     let questionNum = this.state.questionNum;
     if (questionNum === 0) {
       API.getQuestions()
-      .then(res => {
-        this.setState({ questionArr: res.data.results, questionNum: questionNum+1, questionOn: true, timer: 15 });
-        this.makeAnswerArray();
-    })
-      .catch(err => console.log(err));
+        .then(res => {
+          this.setState({ answerClicked: false, questionArr: res.data.results, questionNum: questionNum + 1, questionOn: true, timer: 15 });
+          this.makeAnswerArray();
+        })
+        .catch(err => console.log(err));
     }
     else if (questionNum > 14) {
       this.endRound();
     }
     else {
-      this.setState({ questionNum: questionNum+1, questionOn: true, timer: 15 });
+      this.setState({ answerClicked: false, questionNum: questionNum + 1, questionOn: true, timer: 15 });
       this.makeAnswerArray();
     }
   }
 
   makeAnswerArray() {
     const temp = [];
-    const tempNum = this.state.questionNum-1;
+    const tempNum = this.state.questionNum - 1;
     const questObj = this.state.questionArr[tempNum];
-    this.setState({ correctAnswerIndex: Math.floor(Math.random() * 4), question: this.state.questionArr[tempNum]});
+    this.setState({ correctAnswerIndex: Math.floor(Math.random() * 4), question: this.state.questionArr[tempNum] });
     switch (this.state.correctAnswerIndex) {
       case 0:
         temp.push(questObj.correct_answer, questObj.incorrect_answers[0], questObj.incorrect_answers[1], questObj.incorrect_answers[2]);
@@ -103,61 +99,57 @@ class Question extends Component {
       default:
         break;
     }
-    this.setState({ answers: temp});
+    this.setState({ answers: temp });
   }
 
   scoreAnswer = index => {
+    this.setState({ answerClicked: true });
     const correctAnswer = this.state.correctAnswerIndex;
     let totalAnswered = this.state.totalAnswered;
     let totalCorrect = this.state.totalCorrect;
     let totalWrong = this.state.totalWrong;
-      if (index === correctAnswer) {
-        this.setState({ answerCorrect: true, totalAnswered: totalAnswered+1, totalCorrect: totalCorrect+1, questionOn: false});
-      }
-      else if (index !== correctAnswer) {
-        this.setState({ answerCorrect: false, totalAnswered: totalAnswered+1, totalWrong: totalWrong+1, questionOn: false});
-      }
-  }
-
- 
-
-  pushFinalScoretoDB = function(data) {
-    
-       console.log("pushFinal");
-       axios.put(`/auth/endGame/${this.props.user.local.username}/${this.state.totalCorrect}`)
-       .then(response => {
-         console.log(response);
-         console.log(this.state.currentScore);
-       })
+    if (index === correctAnswer) {
+      this.setState({ answerCorrect: true, totalAnswered: totalAnswered + 1, totalCorrect: totalCorrect + 1, questionOn: false });
     }
-  showWinOrLose(){
-    //let us change the condition in if, once we are working with 15 questions at a time
-     if(this.state.totalCorrect < 12 ){
-           this.setState({
-             redirectTo: '/loser'
-           })
-           console.log(this.state.redirectTo);
-
-      }
-      if(this.state.totalCorrect >= 12){
-          this.setState({
-            redirectTo: '/winner'
-          })
-          console.log(this.state.redirectTo);
-      }
-    
+    else if (index !== correctAnswer) {
+      this.setState({ answerCorrect: false, totalAnswered: totalAnswered + 1, totalWrong: totalWrong + 1, questionOn: false });
+    }
   }
- 
+
+  pushFinalScoretoDB = data => {
+    console.log("pushFinal");
+    axios.put(`/auth/endGame/${this.props.user.local.username}/${this.state.totalCorrect}`)
+      .then(response => {
+        console.log(response);
+        console.log(this.state.currentScore);
+      })
+  }
+
+  showWinOrLose() {
+    //let us change the condition in if, once we are working with 15 questions at a time
+    if (this.state.totalCorrect < 12) {
+      this.setState({
+        redirectTo: '/loser'
+      })
+      console.log(this.state.redirectTo);
+
+    }
+    if (this.state.totalCorrect >= 12) {
+      this.setState({
+        redirectTo: '/winner'
+      })
+      console.log(this.state.redirectTo);
+    }
+  }
+
   endRound() {
-    this.setState({
-      flag: false
-    })
+    this.setState({ answerClicked: false, flag: false });
     console.log(this);
     clearInterval(this.timerID);
     this.pushFinalScoretoDB();
     console.log("end of the round");
     this.showWinOrLose();
-   
+
     // this is the end of the game...add calls to end of game stuff
   }
 
@@ -165,18 +157,18 @@ class Question extends Component {
     // if (this.state.redirectTo) {
     //   return <Redirect to={{ pathname: this.state.redirectTo }} />
     // }
-    console.log("total corrects"+this.state.totalCorrect);
-    if(this.state.totalCorrect < 12 && this.state.flag === false){
-      console.log("losser");
-      return <Redirect to = '/loser' />
+    console.log("total corrects" + this.state.totalCorrect);
+    if (this.state.totalCorrect < 12 && this.state.flag === false) {
+      console.log("loser");
+      return <Redirect to='/loser' />
     }
-    if(this.state.totalCorrect >= 12 && this.state.flag === false){
+    if (this.state.totalCorrect >= 12 && this.state.flag === false) {
       console.log("winner");
       return <Redirect to='/winner' />
     }
     return (
       <div className="background">
-        <Navbar  _logout={this._logout} loggedIn={this.state.loggedIn}/>
+        <Navbar _logout={this._logout} loggedIn={this.state.loggedIn} />
         <Container fluid>
           <Row>
             {this.state.questionOn ? (
@@ -187,15 +179,15 @@ class Question extends Component {
                 <Card>
                   <CardHeader className="default"><h1 className="text-center">Question {this.state.questionNum}</h1></CardHeader>
                   <CardBody>
-                    <h6 className="text-center">Time Remaining: {this.state.timer-5}</h6>
-                    <h4 className="text-center">{entities.decode(this.state.question.question)}</h4>
+                    <h6 className="text-center">Time Remaining: {this.state.timer - 5}</h6>
+                    <h4 className="text-center">{entities.decodeHTML(this.state.question.question)}</h4>
                   </CardBody>
                 </Card>
                 <div className="text-center">
                   {this.state.answers.map((option, index) => {
                     return (
                       <div key={index}>
-                        <button type="button" className="btn answer-btn text-center" onClick={() => this.scoreAnswer(index)}>{entities.decode(option)}</button>
+                        <button type="button" className="btn answer-btn text-center" onClick={() => this.scoreAnswer(index)}>{entities.decodeHTML(option)}</button>
                         <br />
                       </div>
                     );
@@ -208,18 +200,18 @@ class Question extends Component {
                   {/* answer component */}
                   <img className="mx-auto d-block logo" src="img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="150" />
 
-                <Card>
-                  <CardHeader><h1 className="text-center">Question {this.state.questionNum}</h1></CardHeader>
-                  <CardBody>
-                    <h6 className="text-center">Time Until Next Question: {this.state.timer}</h6>
-                    <h4 className="text-center">{entities.decode(this.state.question.question)}</h4>
-                    <h6 className="text-center">{this.state.answerCorrect ? <strong className="correct">CORRECT!!!</strong>: <strong className="wrong">WRONG!!!</strong>}</h6>
-                    <h6 className="answer text-center">The correct answer is: {entities.decode(this.state.answers[this.state.correctAnswerIndex])}</h6>
-                    <p className="text-center"><strong>Total Answered:</strong> {this.state.totalAnswered} out of {this.state.questionNum}</p>
-                    <p className="text-center"><strong>Total Correct:</strong> {this.state.totalCorrect}</p>
-                    <p className="text-center"><strong>Total Wrong:</strong> {this.state.totalWrong}</p>
-                  </CardBody>
-                </Card>
+                  <Card>
+                    <CardHeader><h1 className="text-center">Question {this.state.questionNum}</h1></CardHeader>
+                    <CardBody>
+                      <h6 className="text-center">Time Until Next Question: {this.state.timer}</h6>
+                      <h4 className="text-center">{entities.decodeHTML(this.state.question.question)}</h4>
+                      <h6 className="text-center">{this.state.answerClicked ? (this.state.answerCorrect ? <strong className="correct">CORRECT!!!</strong> : <strong className="wrong">WRONG!!!</strong>) : ("")}</h6>
+                      <h6 className="answer text-center">The correct answer is: {entities.decodeHTML(this.state.answers[this.state.correctAnswerIndex])}</h6>
+                      <p className="text-center"><strong>Total Answered:</strong> {this.state.totalAnswered} out of {this.state.questionNum}</p>
+                      <p className="text-center"><strong>Total Correct:</strong> {this.state.totalCorrect}</p>
+                      <p className="text-center"><strong>Total Wrong:</strong> {this.state.totalWrong}</p>
+                    </CardBody>
+                  </Card>
                 </Col>
               )}
           </Row>
