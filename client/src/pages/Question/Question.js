@@ -32,7 +32,8 @@ class Question extends Component {
       totalWrong: 0,
       totalTimedOut: 0,
       redirectTo: null,
-      questionOn: true //true to display question, false to display answer
+      questionOn: true, //true to display question, false to display answer
+      flag: true
     };
     this.showQuestion();
   }
@@ -135,18 +136,22 @@ class Question extends Component {
            this.setState({
              redirectTo: '/loser'
            })
+           console.log(this.state.redirectTo);
 
       }
       if(this.state.totalCorrect >= 12){
           this.setState({
             redirectTo: '/winner'
           })
-
+          console.log(this.state.redirectTo);
       }
     
   }
  
   endRound() {
+    this.setState({
+      flag: false
+    })
     console.log(this);
     clearInterval(this.timerID);
     this.pushFinalScoretoDB();
@@ -157,8 +162,17 @@ class Question extends Component {
   }
 
   render() {
-    if (this.state.redirectTo) {
-      return <Redirect to={{ pathname: this.state.redirectTo }} />
+    // if (this.state.redirectTo) {
+    //   return <Redirect to={{ pathname: this.state.redirectTo }} />
+    // }
+    console.log("total corrects"+this.state.totalCorrect);
+    if(this.state.totalCorrect < 12 && this.state.flag === false){
+      console.log("losser");
+      return <Redirect to = '/loser' />
+    }
+    if(this.state.totalCorrect >= 12 && this.state.flag === false){
+      console.log("winner");
+      return <Redirect to='/winner' />
     }
     return (
       <div className="background">
