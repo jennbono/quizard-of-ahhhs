@@ -103,7 +103,25 @@ router.get('/leaderboard', (req, res) =>{
 	  console.log(data);
 	  console.log("inside leaderboard");
 	})
-  })
+	})
+	
+	// updateHighScore = (username, score) =>{
+	// 	User.findOne({
+	// 		"local.username": username
+	// 	}).then(user =>{
+	// 		console.log("inside high score function");
+	// 		console.log(user);
+	// 		if(user.currentScore > user.highscore){
+	// 			console.log("inside high condition");
+	// 			User.update({
+	// 				"local.username": username
+	// 			},{$set:{"highscore": score}}
+	// 			)
+	// 		}//end of if
+
+	// 	})
+
+	// }
 
   router.put('/endGame/:username/:score', (req, res) => {
 		console.log("inRoutes");
@@ -114,20 +132,28 @@ router.get('/leaderboard', (req, res) =>{
 		  "currentScore": req.params.score
 		}
 		
-	  })
+		})
+		// updateHighScore(req.params.username, req.params.score);
 		.then(() => {
-		  User.findOne({
-			"local.username": req.params.username}
+		  User.findOne({"local.username": req.params.username}
 		   
 		  ).then(user => {
+				console.log("checking user");
 			console.log(user);
+			console.log("params check");
+			console.log(req.params.username);
 
 			if (user.currentScore > user.highscore) {
-			  user.update({
-				$set: {
-				  "highscore": req.params.score
-				}
-			  })
+				console.log("inside if");
+			  User.findOneAndUpdate({"local.username": req.params.username},{$set: {"highscore": req.params.score}},function(err,updated){
+					if(err){
+						console.log("inside err");
+						console.log(err);
+					}
+					if(updated){
+						console.log("updated");
+					}
+				})
 			}
 		  })
 		})
