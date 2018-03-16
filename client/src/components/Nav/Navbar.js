@@ -11,7 +11,9 @@ class Navbar extends Component {
         loggedIn: false,
         user: null
      }
-     this._logout = this._logout.bind(this)
+     this._logout = this._logout.bind(this);
+     this._playGame = this._playGame.bind(this);
+     this._showLeaderBoard = this._showLeaderBoard.bind(this);
   }
   componentDidMount() {
     axios.get('/auth/user').then(response => {
@@ -49,6 +51,18 @@ class Navbar extends Component {
       }
     })
   }
+  _playGame(event){
+      event.preventDefault();
+      this.setState({
+          redirectTo: '/question'
+      })
+  }
+  _showLeaderBoard(event){
+    event.preventDefault();
+    this.setState({
+        redirectTo: '/leaderboard'
+    })
+  }
   render() {
     if (this.state.redirectTo) {
         return <Redirect to={{ pathname: this.state.redirectTo }} />
@@ -67,6 +81,16 @@ class Navbar extends Component {
                         ? "active"
                         : ""}>
                         <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
+                    </li>
+                    <li>
+                        <Link to="#" className="nav-link" onClick={this._playGame}>
+                            Play Game
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="#" className="nav-link" onClick={this._showLeaderBoard}>
+                            Leader Board
+                        </Link>
                     </li>
                     <li>
                         <Link to="#" className="nav-link" onClick={this._logout}>
