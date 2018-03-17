@@ -14,17 +14,17 @@ const userSchema = new Schema({
 	google: {
 		googleId: { type: String, required: false }
 	},
-	highscore: {type: Number, default: 0 },
+	highscore: { type: Number, default: 0 },
 	currentScore: Number,
-	email: {type: String, unique: false, required: false},
-	token: {type: String, unique: false, required: false}
-	
-}, {timestamps:true}
+	email: { type: String, unique: false, required: false },
+	token: { type: String, unique: false, required: false }
+
+}, { timestamps: true }
 )
 
 // Define schema methods
 userSchema.methods = {
-	checkPassword: function(inputPassword) {
+	checkPassword: function (inputPassword) {
 		return bcrypt.compareSync(inputPassword, this.local.password)
 	},
 	hashPassword: plainTextPassword => {
@@ -33,9 +33,8 @@ userSchema.methods = {
 }
 
 // Define hooks for pre-saving
-userSchema.pre('save', function(next) {
+userSchema.pre('save', function (next) {
 	if (!this.local.password) {
-		console.log('=======NO PASSWORD PROVIDED=======')
 		next()
 	} else {
 		this.local.password = this.hashPassword(this.local.password)
