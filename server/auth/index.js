@@ -14,8 +14,6 @@ router.get(
 
 // this route is just used to get the user basic info
 router.get('/user', (req, res, next) => {
-	console.log('===== user!!======')
-	console.log(req.user)
 	if (req.user) {
 		return res.json({ user: req.user })
 	} else {
@@ -26,17 +24,13 @@ router.get('/user', (req, res, next) => {
 router.post(
 	'/login',
 	function (req, res, next) {
-		console.log(req.body)
-		console.log('================')
 		next()
 	},
 	passport.authenticate('local'),
 	(req, res) => {
-		console.log('POST to /login')
 		const user = JSON.parse(JSON.stringify(req.user)) // hack
 		const cleanUser = Object.assign({}, user)
 		if (cleanUser.local) {
-			console.log(`Deleting ${cleanUser.local.password}`)
 			delete cleanUser.local.password
 		}
 		res.json({ user: cleanUser })
@@ -97,18 +91,13 @@ router.post('/signup', (req, res) => {
 })
 //get all data from leaderboard, sort by highscore and return the top 10
 router.get('/leaderboard', (req, res) => {
-	console.log("another leader");
 	User.find({}).sort({ highscore: -1 }).limit(10).exec(function (err, data) {
 		res.json(data);
-		console.log(data);
-		console.log("inside leaderboard");
 	})
 })
 //find by the username and update to the current score, then if the current score is higher 
 //than the high score, update the high score
 router.put('/endGame/:username/:score', (req, res) => {
-	console.log("inRoutes");
-	console.log(req.params);
 	User.update({
 		"local.username": req.params.username
 	},
@@ -122,16 +111,9 @@ router.put('/endGame/:username/:score', (req, res) => {
 			User.findOne({ "local.username": req.params.username }
 
 			).then(user => {
-				console.log("checking user");
-				console.log(user);
-				console.log("params check");
-				console.log(req.params.username);
-
 				if (user.currentScore > user.highscore) {
-					console.log("inside if");
 					User.findOneAndUpdate({ "local.username": req.params.username }, { $set: { "highscore": req.params.score } }, function (err, updated) {
 						if (err) {
-							console.log("inside err");
 							console.log(err);
 						}
 						if (updated) {

@@ -18,11 +18,7 @@ class Navbar extends Component {
     componentDidMount() {
         axios.get('/auth/user').then(response => {
             let sessionData = sessionStorage.getItem('user');
-            console.log(response)
-            console.log(sessionData);
-            console.log(this.state.user);
             if (response.data.user || sessionData) {
-                console.log('THERE IS A USER');
                 this.setState({
                     loggedIn: true,
                     user: response.data.user
@@ -38,9 +34,7 @@ class Navbar extends Component {
     }
     _logout(event) {
         event.preventDefault()
-        console.log('logging out')
         axios.post('/auth/logout').then(response => {
-            console.log(response.data)
             if (response.status === 200) {
                 this.setState({
                     loggedIn: false,
