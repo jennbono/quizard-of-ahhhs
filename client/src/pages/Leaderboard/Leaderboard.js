@@ -47,7 +47,7 @@ class Leaderboard extends Component {
                 <CardHeader><h1 className="text-center">Highest Score Leaderboard</h1>
                 </CardHeader>
                 <CardBody>
-                  {resultScores = result.slice(0, 10).map(topScores =>
+                  {resultScores = result.map(topScores =>
                     <h6 className="text-center">{topScores.value} - {topScores.text} </h6>
                   )}
                   <div className="text-center">
