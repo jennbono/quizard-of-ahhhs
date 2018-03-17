@@ -80,7 +80,7 @@ class App extends Component {
             <Route exact path="/question" component={() => <Question user={this.state.user}/>} />
             <Route exact path="/winner" component={Winner} user={this.state.user}/>
             <Route exact path="/loser" component={Loser} user={this.state.user}/>
-            <Route exact path="/start" component={Start} user={this.state.user}/>
+            <Route exact path="/start" component={() => <Start user={this.state.user}/>} />
             <Route exact path="/leaderboard" component={() => <Leaderboard user={this.state.user}/>} />
             <Route exact path="/signup" component={Signup} />
           </div>

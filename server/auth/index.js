@@ -90,11 +90,20 @@ router.post('/signup', (req, res) => {
 	})
 })
 //get all data from leaderboard, sort by highscore and return the top 10
+// router.get('/leaderboard', (req, res) => {
+// 	var q = User.find({}).sort({ highscore: -1 }).limit(4);
+// 	q.execFind(function(err, data) {
+// 		res.json(data);
+// 	})
+// })
+
 router.get('/leaderboard', (req, res) => {
-	User.find({}).sort({ highscore: -1 }).limit(10).exec(function (err, data) {
+	User.find({}).sort({ highscore: -1 }).exec(function (err, data) {
 		res.json(data);
 	})
 })
+
+
 //find by the username and update to the current score, then if the current score is higher 
 //than the high score, update the high score
 router.put('/endGame/:username/:score', (req, res) => {
