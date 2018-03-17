@@ -16,7 +16,6 @@ class Leaderboard extends Component {
   }
   componentDidMount() {
     axios.get('/auth/leaderboard').then(response => {
-      console.log(response.data);
       this.setState({
         data: response.data
       })
@@ -36,8 +35,6 @@ class Leaderboard extends Component {
     }
 
     let result = this.state.data.map(score => ({ value: score.local.username, text: score.highscore }));
-    console.log(this.data);
-    console.log(result)
     var resultScores
     return (
       <div>
@@ -50,8 +47,8 @@ class Leaderboard extends Component {
                 <CardHeader><h1 className="text-center">Highest Score Leaderboard</h1>
                 </CardHeader>
                 <CardBody>
-                  {resultScores = result.map(topScores =>
-                    <h6>{topScores.value} - {topScores.text} </h6>
+                  {resultScores = result.slice(0, 10).map(topScores =>
+                    <h6 className="text-center">{topScores.value} - {topScores.text} </h6>
                   )}
                   <div className="text-center">
                     <button className="btn-test text-center" onClick={this.handleSubmit}>Play Again</button>

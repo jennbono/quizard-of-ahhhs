@@ -52,8 +52,7 @@ class LoginForm extends Component {
 	handleSubmit(event) {
 		event.preventDefault()
 		const err = this.validate();
-		if(!err){
-			console.log('handleSubmit')
+		if (!err) {
 			this.props._login(this.state.username, this.state.password)
 			this.setState({
 				redirectTo: '/'
@@ -67,32 +66,32 @@ class LoginForm extends Component {
 		} else {
 			return (
 				<MuiThemeProvider>
-				<div className="LoginForm">
-					<h1>Login form</h1>
-					<form>
-						<label htmlFor="username">Username: </label>
-						<TextField
-							type="text"
-							name="username"
-							value={this.state.username}
-							errorText={this.state.usernameError}
-							onChange={this.handleChange}
-						/>
-						<label htmlFor="password">Password: </label>
-						<TextField
-							type="password"
-							name="password"
-							value={this.state.password}
-							errorText={this.state.passwordError}
-							onChange={this.handleChange}
-						/>
-						<button onClick={this.handleSubmit}>Login</button>
-					</form>
-					<a href="/auth/google">
-						{/* <GoogleButton /> */}
-						<img src={googleButton} alt="sign into Google Button" />
-					</a>
-				</div>
+					<div className="LoginForm">
+						<h1>Login form</h1>
+						<form>
+							<label htmlFor="username">Username: </label>
+							<TextField
+								type="text"
+								name="username"
+								value={this.state.username}
+								errorText={this.state.usernameError}
+								onChange={this.handleChange}
+							/>
+							<label htmlFor="password">Password: </label>
+							<TextField
+								type="password"
+								name="password"
+								value={this.state.password}
+								errorText={this.state.passwordError}
+								onChange={this.handleChange}
+							/>
+							<button onClick={this.handleSubmit}>Login</button>
+						</form>
+						<a href="/auth/google">
+							{/* <GoogleButton /> */}
+							<img src={googleButton} alt="sign into Google Button" />
+						</a>
+					</div>
 				</MuiThemeProvider>
 			)
 		}

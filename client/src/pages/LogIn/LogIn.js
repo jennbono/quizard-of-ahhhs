@@ -6,7 +6,7 @@ import { Input, Label, FormBtn } from "../../components/Form";
 import axios from "axios";
 import TextField from "material-ui/TextField";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {GoogleLogin} from 'react-google-login';
+import { GoogleLogin } from 'react-google-login';
 import { grey50 } from 'material-ui/styles/colors';
 
 const styles = {
@@ -59,8 +59,6 @@ class LogIn extends Component {
         password
       })
       .then(response => {
-        console.log("------response----");
-        console.log(response);
         if (response.status === 200) {
           // update the state
           this.setState({
@@ -100,7 +98,6 @@ class LogIn extends Component {
     event.preventDefault();
     const err = this.validate();
     if (!err) {
-      console.log('handleSubmit');
       this._login(this.state.username, this.state.password);
       this.setState({
         usernameError: '',
@@ -110,13 +107,11 @@ class LogIn extends Component {
 
 
   }
-  responseGoogle(response){
-    console.log("google response");
-    console.log(response);
+  responseGoogle(response) {
     this.signup(response, 'google');
   }
 
-  signup(res, type){
+  signup(res, type) {
     let postData;
     // if(type === 'facebook' && res.email){
     //     postData = {
@@ -136,46 +131,39 @@ class LogIn extends Component {
         token: res.Zi.access_token
       };
     }
-    if(postData){
-      console.log(postData);
+    if (postData) {
       axios
-      .post('/auth/saveGoogleUser', {
-        googleId: res.profileObj.googleId,
-        firstName: res.w3.ofa,
-        lastName: res.w3.wea,
-        email: res.w3.U3,
-        token: res.Zi.access_token
-      })
-      .then(response => {
-        console.log("------response----");
-        console.log(response.config.data);
-        if (response.status === 200) {
-          let responseJson  = response.config.data;
-          console.log(JSON.stringify(responseJson));
-          sessionStorage.setItem("user", responseJson);
-          console.log("== added the google user ==");
-          this.setState({
-            loggedIn: true,
-            user: response.data.user,
-            redirectTo: '/start'
-          })
-        }
-        else{
-          console.log("==failed in adding the user==");
-        }
-      })  
+        .post('/auth/saveGoogleUser', {
+          googleId: res.profileObj.googleId,
+          firstName: res.w3.ofa,
+          lastName: res.w3.wea,
+          email: res.w3.U3,
+          token: res.Zi.access_token
+        })
+        .then(response => {
+          if (response.status === 200) {
+            let responseJson = response.config.data;
+            sessionStorage.setItem("user", responseJson);
+            this.setState({
+              loggedIn: true,
+              user: response.data.user,
+              redirectTo: '/start'
+            })
+          }
+          else {
+            console.log("==failed in adding the user==");
+          }
+        })
 
     }//end of if
 
   }
-  responseGoogleFail(response){
+  responseGoogleFail(response) {
     console.log("responseGoogleFail");
   }
   componentDidMount() {
     axios.get('/auth/user').then(response => {
-      console.log(response.data)
       if (!!response.data.user) {
-        console.log('THERE IS A USER')
         this.setState({
           loggedIn: true,
           user: response.data.user
@@ -238,12 +226,12 @@ class LogIn extends Component {
                       /><br />
                       <button className="btn-test" onClick={this.handleSubmit}>Login</button>
                     </form><br />
-                    <GoogleLogin className="btn-test"
+                    {/* <GoogleLogin className="btn-test"
                       clientId="4863906804-hbsq07mcg6p1hcc1hd594s4unpgo8up3.apps.googleusercontent.com"
                       buttonText="Google Login"
                       onSuccess={this.responseGoogle}
                       onFailure={this.responseGoogleFail}
-                    />
+                    /> */}
                   </div>
                 </Col>
               </Row>

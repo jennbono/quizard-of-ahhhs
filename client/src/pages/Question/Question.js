@@ -11,9 +11,7 @@ import entities from "entities"; // fixes the appearance of quotation marks in q
 class Question extends Component {
 
   constructor(props) {
-    console.log(props);
     super(props);
-    console.log(this);
     this.state = {
       question: [],
       questionArr: [],
@@ -50,7 +48,6 @@ class Question extends Component {
       timer: this.state.timer - 1
     });
     const timer = this.state.timer;
-    console.log(timer);
     if (timer % 15 === 5) {
       this.setState({ questionOn: false });
     }
@@ -69,7 +66,7 @@ class Question extends Component {
         })
         .catch(err => console.log(err));
     }
-    else if (questionNum > 14) {
+    else if (questionNum > 9) {
       this.endRound();
     }
     else {
@@ -117,53 +114,40 @@ class Question extends Component {
   }
 
   pushFinalScoretoDB = data => {
-    console.log("pushFinal");
     axios.put(`/auth/endGame/${this.props.user.local.username}/${this.state.totalCorrect}`)
       .then(response => {
-        console.log(response);
-        console.log(this.state.currentScore);
       })
   }
 
   showWinOrLose() {
     //let us change the condition in if, once we are working with 15 questions at a time
-    if (this.state.totalCorrect < 12) {
+    if (this.state.totalCorrect < 6) {
       this.setState({
         redirectTo: '/loser'
       })
-      console.log(this.state.redirectTo);
 
     }
-    if (this.state.totalCorrect >= 12) {
+    if (this.state.totalCorrect >= 6) {
       this.setState({
         redirectTo: '/winner'
       })
-      console.log(this.state.redirectTo);
     }
   }
 
   endRound() {
     this.setState({ answerClicked: false, flag: false });
-    console.log(this);
     clearInterval(this.timerID);
     this.pushFinalScoretoDB();
-    console.log("end of the round");
     this.showWinOrLose();
 
     // this is the end of the game...add calls to end of game stuff
   }
 
   render() {
-    // if (this.state.redirectTo) {
-    //   return <Redirect to={{ pathname: this.state.redirectTo }} />
-    // }
-    console.log("total corrects" + this.state.totalCorrect);
-    if (this.state.totalCorrect < 12 && this.state.flag === false) {
-      console.log("loser");
+    if (this.state.totalCorrect < 6 && this.state.flag === false) {
       return <Redirect to='/loser' />
     }
-    if (this.state.totalCorrect >= 12 && this.state.flag === false) {
-      console.log("winner");
+    if (this.state.totalCorrect >= 6 && this.state.flag === false) {
       return <Redirect to='/winner' />
     }
     return (

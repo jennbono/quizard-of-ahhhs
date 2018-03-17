@@ -26,9 +26,7 @@ class App extends Component {
   }
   componentDidMount() {
     axios.get('/auth/user').then(response => {
-      console.log(response.data)
       if (!!response.data.user) {
-        console.log('THERE IS A USER')
         this.setState({
           loggedIn: true,
           user: response.data.user
@@ -44,9 +42,7 @@ class App extends Component {
 
   _logout(event) {
     event.preventDefault()
-    console.log('logging out')
     axios.post('/auth/logout').then(response => {
-      console.log(response.data)
       if (response.status === 200) {
         this.setState({
           loggedIn: false,
@@ -63,8 +59,6 @@ class App extends Component {
         password
       })
       .then(response => {
-        console.log("------response----");
-        console.log(response);
         if (response.status === 200) {
           // update the state
           this.setState({
@@ -86,7 +80,7 @@ class App extends Component {
             <Route exact path="/question" component={() => <Question user={this.state.user}/>} />
             <Route exact path="/winner" component={Winner} user={this.state.user}/>
             <Route exact path="/loser" component={Loser} user={this.state.user}/>
-            <Route exact path="/start" component={Start} user={this.state.user}/>
+            <Route exact path="/start" component={() => <Start user={this.state.user}/>} />
             <Route exact path="/leaderboard" component={() => <Leaderboard user={this.state.user}/>} />
             <Route exact path="/signup" component={Signup} />
           </div>
