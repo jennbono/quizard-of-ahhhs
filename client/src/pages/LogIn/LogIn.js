@@ -226,12 +226,12 @@ class LogIn extends Component {
                       /><br />
                       <button className="btn-test" onClick={this.handleSubmit}>Login</button>
                     </form><br />
-                    <GoogleLogin className="btn-test"
+                    {/* <GoogleLogin className="btn-test"
                       clientId="4863906804-hbsq07mcg6p1hcc1hd594s4unpgo8up3.apps.googleusercontent.com"
                       buttonText="Google Login"
                       onSuccess={this.responseGoogle}
                       onFailure={this.responseGoogleFail}
-                    />
+                    /> */}
                   </div>
                 </Col>
               </Row>
