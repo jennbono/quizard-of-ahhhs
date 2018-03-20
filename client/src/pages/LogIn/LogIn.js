@@ -66,6 +66,7 @@ class LogIn extends Component {
             user: response.data.user,
             redirectTo: '/start'
           })
+          this.props.updateUser(response.data.user)
         }
       })
   }
