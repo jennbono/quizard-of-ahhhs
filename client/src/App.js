@@ -23,6 +23,7 @@ class App extends Component {
     }
     this._logout = this._logout.bind(this)
     this._login = this._login.bind(this)
+    this.updateUser = this.updateUser.bind(this);
   }
   componentDidMount() {
     axios.get('/auth/user').then(response => {
@@ -38,6 +39,10 @@ class App extends Component {
         })
       }
     })
+  }
+
+  updateUser (user) {
+    this.setState({user})
   }
 
   _logout(event) {
@@ -76,7 +81,7 @@ class App extends Component {
           <div>
             <Route exact path="/" component={Home} user={this.state.user}/>
             <Route exact path="/home" component={Home} user={this.state.user} />
-            <Route exact path="/login" component={LogIn} user={this.state.user}/>
+            <Route exact path="/login" component={() => <LogIn updateUser={this.updateUser} />} user={this.state.user}/>
             <Route exact path="/question" component={() => <Question user={this.state.user}/>} />
             <Route exact path="/winner" component={Winner} user={this.state.user}/>
             <Route exact path="/loser" component={Loser} user={this.state.user}/>

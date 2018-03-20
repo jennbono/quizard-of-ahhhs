@@ -98,7 +98,7 @@ router.post('/signup', (req, res) => {
 // })
 
 router.get('/leaderboard', (req, res) => {
-	User.find({}).sort({ highscore: -1 }).exec(function (err, data) {
+	User.find({}).sort({ highscore: -1 }).limit(10).exec(function (err, data) {
 		res.json(data);
 	})
 })
