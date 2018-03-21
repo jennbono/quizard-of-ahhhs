@@ -44,7 +44,7 @@ class Leaderboard extends Component {
             <Col size="md-6">
               <img className="mx-auto d-block logo img-fluid" src="img/quizard_of_ahhhs.png" alt="Quizard of Ahhhs... Logo" height="200" />
               <Card>
-                <CardHeader><h1 className="text-center">Highest Score Leaderboard</h1>
+                <CardHeader><h1 className="text-center">Top 10 Leaderboard</h1>
                 </CardHeader>
                 <CardBody>
                   {resultScores = result.map(topScores =>
